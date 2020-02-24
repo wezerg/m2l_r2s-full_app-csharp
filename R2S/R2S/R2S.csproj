@@ -61,11 +61,11 @@
     <Compile Include="Administrateur.Designer.cs">
       <DependentUpon>Administrateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajouterSalarie.cs">
+    <Compile Include="modifSalarie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajouterSalarie.Designer.cs">
-      <DependentUpon>ajouterSalarie.cs</DependentUpon>
+    <Compile Include="modifSalarie.Designer.cs">
+      <DependentUpon>modifSalarie.cs</DependentUpon>
     </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
@@ -82,8 +82,8 @@
     <EmbeddedResource Include="Administrateur.resx">
       <DependentUpon>Administrateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajouterSalarie.resx">
-      <DependentUpon>ajouterSalarie.cs</DependentUpon>
+    <EmbeddedResource Include="modifSalarie.resx">
+      <DependentUpon>modifSalarie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>

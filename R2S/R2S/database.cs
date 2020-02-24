@@ -18,6 +18,7 @@ namespace R2S
         MySqlConnection sqlConnection = new MySqlConnection(strConnection);
         MySqlCommand sqlCommand = new MySqlCommand();
         MySqlDataReader sqlDataR;
+        MySqlTransaction sqlTransaction;
         public database()
         {
 
@@ -162,12 +163,34 @@ namespace R2S
             }
         }
 
-        public void insertDB(string s)
+        public void insertDB(string nonQuery)
         {
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = s;
-            sqlCommand.ExecuteNonQuery();
+            // Commencer la transaction
+            sqlTransaction = sqlConnection.BeginTransaction();
+            // Essayer les étapes
+            try
+            {
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = nonQuery;
+                sqlCommand.Transaction = sqlTransaction;
+                sqlCommand.ExecuteNonQuery();
+                sqlTransaction.Commit();
+            } // Sinon arreter la transaction
+            catch (MySqlException ex)
+            {
+                sqlTransaction.Rollback();
+            }
+            // Supprimer la commande
             sqlCommand.Dispose();
+        }
+
+        public void ajouter()
+        {
+            modifSalarie add = new modifSalarie(dbQuery("Hello World"));
+        }
+        public void modifier()
+        {
+            modifSalarie modif = new modifSalarie(dbQuery("Hello World"));
         }
     }
 }

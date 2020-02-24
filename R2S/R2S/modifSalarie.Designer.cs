@@ -1,6 +1,6 @@
 ﻿namespace R2S
 {
-    partial class ajouterSalarie
+    partial class modifSalarie
     {
         /// <summary>
         /// Required designer variable.
@@ -40,136 +40,152 @@
             this.lbl_add_salle = new System.Windows.Forms.Label();
             this.cho_add_ligue = new System.Windows.Forms.ListBox();
             this.cho_add_salle = new System.Windows.Forms.ListBox();
-            this.btn_add_ajouter = new System.Windows.Forms.Button();
+            this.btn_add_confirm = new System.Windows.Forms.Button();
             this.btn_add_annule = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_add_nom
             // 
             this.lbl_add_nom.AutoSize = true;
-            this.lbl_add_nom.Location = new System.Drawing.Point(24, 25);
+            this.lbl_add_nom.Location = new System.Drawing.Point(32, 31);
+            this.lbl_add_nom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_add_nom.Name = "lbl_add_nom";
-            this.lbl_add_nom.Size = new System.Drawing.Size(35, 13);
+            this.lbl_add_nom.Size = new System.Drawing.Size(45, 17);
             this.lbl_add_nom.TabIndex = 0;
             this.lbl_add_nom.Text = "Nom :";
             // 
             // txt_add_nom
             // 
-            this.txt_add_nom.Location = new System.Drawing.Point(27, 50);
+            this.txt_add_nom.Location = new System.Drawing.Point(36, 62);
+            this.txt_add_nom.Margin = new System.Windows.Forms.Padding(4);
             this.txt_add_nom.Name = "txt_add_nom";
-            this.txt_add_nom.Size = new System.Drawing.Size(100, 20);
+            this.txt_add_nom.Size = new System.Drawing.Size(132, 22);
             this.txt_add_nom.TabIndex = 1;
             // 
             // txt_add_prenom
             // 
-            this.txt_add_prenom.Location = new System.Drawing.Point(167, 50);
+            this.txt_add_prenom.Location = new System.Drawing.Point(223, 62);
+            this.txt_add_prenom.Margin = new System.Windows.Forms.Padding(4);
             this.txt_add_prenom.Name = "txt_add_prenom";
-            this.txt_add_prenom.Size = new System.Drawing.Size(100, 20);
+            this.txt_add_prenom.Size = new System.Drawing.Size(132, 22);
             this.txt_add_prenom.TabIndex = 3;
             // 
             // lbl_add_prenom
             // 
             this.lbl_add_prenom.AutoSize = true;
-            this.lbl_add_prenom.Location = new System.Drawing.Point(164, 25);
+            this.lbl_add_prenom.Location = new System.Drawing.Point(219, 31);
+            this.lbl_add_prenom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_add_prenom.Name = "lbl_add_prenom";
-            this.lbl_add_prenom.Size = new System.Drawing.Size(49, 13);
+            this.lbl_add_prenom.Size = new System.Drawing.Size(65, 17);
             this.lbl_add_prenom.TabIndex = 2;
             this.lbl_add_prenom.Text = "Prénom :";
             // 
             // txt_add_login
             // 
-            this.txt_add_login.Location = new System.Drawing.Point(27, 112);
+            this.txt_add_login.Location = new System.Drawing.Point(36, 138);
+            this.txt_add_login.Margin = new System.Windows.Forms.Padding(4);
             this.txt_add_login.Name = "txt_add_login";
-            this.txt_add_login.Size = new System.Drawing.Size(100, 20);
+            this.txt_add_login.Size = new System.Drawing.Size(132, 22);
             this.txt_add_login.TabIndex = 5;
             // 
             // lbl_add_login
             // 
             this.lbl_add_login.AutoSize = true;
-            this.lbl_add_login.Location = new System.Drawing.Point(24, 87);
+            this.lbl_add_login.Location = new System.Drawing.Point(32, 107);
+            this.lbl_add_login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_add_login.Name = "lbl_add_login";
-            this.lbl_add_login.Size = new System.Drawing.Size(42, 13);
+            this.lbl_add_login.Size = new System.Drawing.Size(55, 17);
             this.lbl_add_login.TabIndex = 4;
             this.lbl_add_login.Text = "Login : ";
             // 
             // txt_add_password
             // 
-            this.txt_add_password.Location = new System.Drawing.Point(167, 112);
+            this.txt_add_password.Location = new System.Drawing.Point(223, 138);
+            this.txt_add_password.Margin = new System.Windows.Forms.Padding(4);
             this.txt_add_password.Name = "txt_add_password";
             this.txt_add_password.PasswordChar = '*';
-            this.txt_add_password.Size = new System.Drawing.Size(100, 20);
+            this.txt_add_password.Size = new System.Drawing.Size(132, 22);
             this.txt_add_password.TabIndex = 7;
             // 
             // lbl_add_password
             // 
             this.lbl_add_password.AutoSize = true;
-            this.lbl_add_password.Location = new System.Drawing.Point(164, 87);
+            this.lbl_add_password.Location = new System.Drawing.Point(219, 107);
+            this.lbl_add_password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_add_password.Name = "lbl_add_password";
-            this.lbl_add_password.Size = new System.Drawing.Size(59, 13);
+            this.lbl_add_password.Size = new System.Drawing.Size(77, 17);
             this.lbl_add_password.TabIndex = 6;
             this.lbl_add_password.Text = "Password :";
             // 
             // lbl_add_ligue
             // 
             this.lbl_add_ligue.AutoSize = true;
-            this.lbl_add_ligue.Location = new System.Drawing.Point(24, 148);
+            this.lbl_add_ligue.Location = new System.Drawing.Point(32, 182);
+            this.lbl_add_ligue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_add_ligue.Name = "lbl_add_ligue";
-            this.lbl_add_ligue.Size = new System.Drawing.Size(39, 13);
+            this.lbl_add_ligue.Size = new System.Drawing.Size(51, 17);
             this.lbl_add_ligue.TabIndex = 8;
             this.lbl_add_ligue.Text = "Ligue :";
             // 
             // lbl_add_salle
             // 
             this.lbl_add_salle.AutoSize = true;
-            this.lbl_add_salle.Location = new System.Drawing.Point(24, 209);
+            this.lbl_add_salle.Location = new System.Drawing.Point(32, 257);
+            this.lbl_add_salle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_add_salle.Name = "lbl_add_salle";
-            this.lbl_add_salle.Size = new System.Drawing.Size(30, 13);
+            this.lbl_add_salle.Size = new System.Drawing.Size(39, 17);
             this.lbl_add_salle.TabIndex = 10;
             this.lbl_add_salle.Text = "Salle";
             // 
             // cho_add_ligue
             // 
             this.cho_add_ligue.FormattingEnabled = true;
-            this.cho_add_ligue.Location = new System.Drawing.Point(27, 164);
+            this.cho_add_ligue.ItemHeight = 16;
+            this.cho_add_ligue.Location = new System.Drawing.Point(36, 202);
+            this.cho_add_ligue.Margin = new System.Windows.Forms.Padding(4);
             this.cho_add_ligue.Name = "cho_add_ligue";
-            this.cho_add_ligue.Size = new System.Drawing.Size(240, 30);
+            this.cho_add_ligue.Size = new System.Drawing.Size(319, 36);
             this.cho_add_ligue.TabIndex = 11;
             // 
             // cho_add_salle
             // 
             this.cho_add_salle.FormattingEnabled = true;
-            this.cho_add_salle.Location = new System.Drawing.Point(27, 225);
+            this.cho_add_salle.ItemHeight = 16;
+            this.cho_add_salle.Location = new System.Drawing.Point(36, 277);
+            this.cho_add_salle.Margin = new System.Windows.Forms.Padding(4);
             this.cho_add_salle.Name = "cho_add_salle";
-            this.cho_add_salle.Size = new System.Drawing.Size(240, 30);
+            this.cho_add_salle.Size = new System.Drawing.Size(319, 36);
             this.cho_add_salle.TabIndex = 12;
             // 
-            // btn_add_ajouter
+            // btn_add_confirm
             // 
-            this.btn_add_ajouter.Location = new System.Drawing.Point(27, 276);
-            this.btn_add_ajouter.Name = "btn_add_ajouter";
-            this.btn_add_ajouter.Size = new System.Drawing.Size(93, 22);
-            this.btn_add_ajouter.TabIndex = 13;
-            this.btn_add_ajouter.Text = "Ajouter";
-            this.btn_add_ajouter.UseVisualStyleBackColor = true;
-            this.btn_add_ajouter.Click += new System.EventHandler(this.btn_add_ajouter_Click);
+            this.btn_add_confirm.Location = new System.Drawing.Point(36, 340);
+            this.btn_add_confirm.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_add_confirm.Name = "btn_add_confirm";
+            this.btn_add_confirm.Size = new System.Drawing.Size(124, 27);
+            this.btn_add_confirm.TabIndex = 13;
+            this.btn_add_confirm.Text = "Confirmer";
+            this.btn_add_confirm.UseVisualStyleBackColor = true;
+            this.btn_add_confirm.Click += new System.EventHandler(this.btn_add_confirm_Click);
             // 
             // btn_add_annule
             // 
-            this.btn_add_annule.Location = new System.Drawing.Point(174, 276);
+            this.btn_add_annule.Location = new System.Drawing.Point(232, 340);
+            this.btn_add_annule.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add_annule.Name = "btn_add_annule";
-            this.btn_add_annule.Size = new System.Drawing.Size(93, 22);
+            this.btn_add_annule.Size = new System.Drawing.Size(124, 27);
             this.btn_add_annule.TabIndex = 14;
             this.btn_add_annule.Text = "Annuler";
             this.btn_add_annule.UseVisualStyleBackColor = true;
             this.btn_add_annule.Click += new System.EventHandler(this.btn_add_annule_Click);
             // 
-            // ajouterSalarie
+            // modifSalarie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 337);
+            this.ClientSize = new System.Drawing.Size(432, 415);
             this.Controls.Add(this.btn_add_annule);
-            this.Controls.Add(this.btn_add_ajouter);
+            this.Controls.Add(this.btn_add_confirm);
             this.Controls.Add(this.cho_add_salle);
             this.Controls.Add(this.cho_add_ligue);
             this.Controls.Add(this.lbl_add_salle);
@@ -182,9 +198,10 @@
             this.Controls.Add(this.lbl_add_prenom);
             this.Controls.Add(this.txt_add_nom);
             this.Controls.Add(this.lbl_add_nom);
-            this.Name = "ajouterSalarie";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "modifSalarie";
             this.Text = "ajouter";
-            this.Load += new System.EventHandler(this.ajouterSalarie_Load);
+            this.Load += new System.EventHandler(this.modifSalarie_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,18 +210,18 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_add_nom;
-        private System.Windows.Forms.TextBox txt_add_nom;
-        private System.Windows.Forms.TextBox txt_add_prenom;
         private System.Windows.Forms.Label lbl_add_prenom;
-        private System.Windows.Forms.TextBox txt_add_login;
         private System.Windows.Forms.Label lbl_add_login;
-        private System.Windows.Forms.TextBox txt_add_password;
         private System.Windows.Forms.Label lbl_add_password;
         private System.Windows.Forms.Label lbl_add_ligue;
         private System.Windows.Forms.Label lbl_add_salle;
-        private System.Windows.Forms.ListBox cho_add_ligue;
-        private System.Windows.Forms.ListBox cho_add_salle;
-        private System.Windows.Forms.Button btn_add_ajouter;
+        private System.Windows.Forms.Button btn_add_confirm;
         private System.Windows.Forms.Button btn_add_annule;
+        internal System.Windows.Forms.TextBox txt_add_nom;
+        internal System.Windows.Forms.TextBox txt_add_prenom;
+        internal System.Windows.Forms.TextBox txt_add_login;
+        internal System.Windows.Forms.TextBox txt_add_password;
+        internal System.Windows.Forms.ListBox cho_add_ligue;
+        internal System.Windows.Forms.ListBox cho_add_salle;
     }
 }
