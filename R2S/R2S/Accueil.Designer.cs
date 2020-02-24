@@ -1,6 +1,6 @@
 ﻿namespace R2S
 {
-    partial class Acceuil
+    partial class Accueil
     {
         /// <summary>
         /// Required designer variable.

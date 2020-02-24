@@ -34,7 +34,7 @@ namespace R2S
                 strQuery = "SELECT utilisateur.login, utilisateur.password, utilisateur.id, utilisateur.id_groupe_utilisateur FROM utilisateur";
                 if (db.userCertif(strQuery, txt_login, txt_password) == 2)
                 {
-                    Acceuil acceuil = new Acceuil();
+                    Accueil acceuil = new Accueil();
                     this.Hide();
                     acceuil.Show();
                     

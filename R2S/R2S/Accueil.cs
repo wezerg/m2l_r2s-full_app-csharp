@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace R2S
 {
-    public partial class Acceuil : Form
+    public partial class Accueil : Form
     {
-        public Acceuil()
+        public Accueil()
         {
             InitializeComponent();
         }
