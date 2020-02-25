@@ -46,16 +46,15 @@ D:\OneDrive\Fichiers\Perso\Collection code\M2L_R2S\R2S\R2S\obj\Debug\R2S.pdb
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\R2S.exe.config
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\R2S.exe
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\R2S.pdb
-D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\MySql.Data.dll
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\Google.Protobuf.dll
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\MySql.Data.xml
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.csprojAssemblyReference.cache
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.Accueil.resources
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.Administrateur.resources
-D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.ajouterSalarie.resources
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.Connexion.resources
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.Properties.Resources.resources
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.csproj.GenerateResource.cache
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.csproj.CopyComplete
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.exe
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.pdb
+D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.modifSalarie.resources

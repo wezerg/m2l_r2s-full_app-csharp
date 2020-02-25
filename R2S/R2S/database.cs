@@ -163,7 +163,7 @@ namespace R2S
             }
         }
 
-        public void insertDB(string nonQuery)
+        public void updateDB(string [,] nonQuery)
         {
             // Commencer la transaction
             sqlTransaction = sqlConnection.BeginTransaction();
@@ -171,26 +171,76 @@ namespace R2S
             try
             {
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = nonQuery;
                 sqlCommand.Transaction = sqlTransaction;
+                // Choix du texte de la requete en fonction du tableau recu
+                switch (nonQuery[0,0])
+                {
+                    case "modifUser":
+                        sqlCommand.CommandText = "UPDATE utilisateur " +
+                                                "SET nom = " + '"'+nonQuery[0, 2]+ '"' + ", prenom = " + '"' + nonQuery[0, 3] +
+                                                '"' + ", login = " + '"' + nonQuery[0, 4] + '"' + ", password = " + '"' + nonQuery[0, 5] + '"' + 
+                                                 ((nonQuery[0, 6] == null || nonQuery[0, 6] == "") ? "" : ", id_ligue = " + '"' + nonQuery[0, 6] + '"')  + ((nonQuery[0, 7] == null || nonQuery[0, 7] == "") ? "" : ", id_salle = " + '"' + nonQuery[0, 7] + '"')  + 
+                                                " WHERE utilisateur.id = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        break;
+                    case "ajoutUser":
+                        sqlCommand.CommandText = "INSERT INTO utilisateur (nom, prenom, login, password" + 
+                                                ((nonQuery[0, 6] == null || nonQuery[0, 6] == "") ? "": ", id_ligue,") + 
+                                                ((nonQuery[0, 7] == null || nonQuery[0, 7] == "") ? "" : ", id_salle") + ") VALUES (" + 
+                                                '"' + nonQuery[0, 2] + '"' + ", " + '"' + nonQuery[0, 3] + '"' + ", " + '"' + nonQuery[0, 4] + 
+                                                '"' + ", " + '"' + nonQuery[0, 5] + '"' + ", " + '"' + nonQuery[0, 6] + '"' + ", " + '"' + nonQuery[0, 7] + '"' + ")";
+                        break;
+                    case "ligue":
+                        sqlCommand.CommandText = "UPDATE ligue " +
+                                                "SET intitule = " + '"' + nonQuery[0, 2] + '"' +
+                                                " WHERE ligue.id = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        break;
+                    case "salle":
+                        sqlCommand.CommandText = "UPDATE salle " +
+                                                "SET localisation = " + '"' + nonQuery[0, 2] + '"' +
+                                                " WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        break;
+                    default:
+                        MessageBox.Show("Erreur lors de l'écriture. Contactez votre administrateur", "Attention");
+                        break;
+                }
+                
+                // Affectation de la transaction a notre commande
+                
+                // Envoi de la requete en BDD
                 sqlCommand.ExecuteNonQuery();
                 sqlTransaction.Commit();
             } // Sinon arreter la transaction
             catch (MySqlException ex)
             {
+                MessageBox.Show(ex.ToString(), "Attention");
                 sqlTransaction.Rollback();
             }
             // Supprimer la commande
             sqlCommand.Dispose();
         }
 
-        public void ajouter()
+        public void ajouterSalarie()
         {
+            // Ouverture de la connexion
+            dbConnect();
+            // Ajout d'un salarié, probleme de INSERT INTO
             modifSalarie add = new modifSalarie(dbQuery("Hello World"));
+
+            add.Text = "Ajouter salarié";
+            add.ShowDialog();
         }
-        public void modifier()
+        public void modifierSalarie(string idUser)
         {
-            modifSalarie modif = new modifSalarie(dbQuery("Hello World"));
+            // Ouverture de la connexion
+            dbConnect();
+            // Création de la fenetre modification avec insertion des informations du salariés selectionné dans la dataGridView
+            modifSalarie modif = new modifSalarie(dbQuery("SELECT u.id, u.nom, u.prenom, u.login, u.password, u.id_ligue, u.id_salle " +
+                                                            "FROM utilisateur u " +
+                                                            "WHERE u.id =" + '"' + idUser + '"' + ";"));
+            modif.Text = "Modifier salarié";
+            dbDisconnect();
+            modif.ShowDialog();
+            
         }
     }
 }

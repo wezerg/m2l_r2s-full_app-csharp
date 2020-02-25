@@ -25,29 +25,16 @@ namespace R2S
 
         private void btn_admin_salarie_add_Click(object sender, EventArgs e)
         {
-            db.ajouter();
+            db.ajouterSalarie();
             this.refreshList();
         }
 
         private void btn_admin_salarie_modif_Click(object sender, EventArgs e)
         {
-            db.modifier();
-
-            //modifSalarie modif = new modifSalarie();
-            //int x = data_admin_salarie.SelectedCells[0].RowIndex;
-            //string y = data_admin_salarie.Rows[x].Cells[0].Value.ToString();
-            //db.dbConnect();
-            //string[,] afficherSalarie = db.dbQuery("SELECT u.id, u.nom, u.prenom, u.login, u.password, u.id_ligue, u.id_salle " +
-            //            "FROM utilisateur u " +
-            //            "WHERE u.id = " + '"' + y + '"');
-            //modif.txt_add_nom.Text = afficherSalarie[0, 1];
-            //modif.txt_add_prenom.Text = "Hello World";
-            //modif.txt_add_login.Text = "Hello World";
-            //modif.txt_add_login.ReadOnly = true;
-            //modif.txt_add_password.Text = "Hello World";
-            //modif.ShowDialog();
+            // Récupération de l'id du salarié sélectionné
+            string valueCell = data_admin_salarie.Rows[data_admin_salarie.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
+            db.modifierSalarie(valueCell);
             this.refreshList();
-
         }
 
         private void refreshList()
