@@ -41,35 +41,34 @@
             // txt_password
             // 
             this.txt_password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txt_password.Location = new System.Drawing.Point(191, 228);
-            this.txt_password.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_password.MaximumSize = new System.Drawing.Size(118, 20);
-            this.txt_password.MinimumSize = new System.Drawing.Size(118, 20);
+            this.txt_password.Location = new System.Drawing.Point(253, 281);
+            this.txt_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_password.MaximumSize = new System.Drawing.Size(156, 20);
+            this.txt_password.MinimumSize = new System.Drawing.Size(156, 20);
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
-            this.txt_password.Size = new System.Drawing.Size(118, 20);
+            this.txt_password.Size = new System.Drawing.Size(156, 20);
             this.txt_password.TabIndex = 1;
             this.txt_password.UseSystemPasswordChar = true;
             // 
             // txt_login
             // 
             this.txt_login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txt_login.Location = new System.Drawing.Point(191, 167);
-            this.txt_login.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_login.MaximumSize = new System.Drawing.Size(118, 20);
-            this.txt_login.MinimumSize = new System.Drawing.Size(118, 20);
+            this.txt_login.Location = new System.Drawing.Point(253, 206);
+            this.txt_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_login.MaximumSize = new System.Drawing.Size(156, 20);
+            this.txt_login.MinimumSize = new System.Drawing.Size(156, 20);
             this.txt_login.Name = "txt_login";
-            this.txt_login.Size = new System.Drawing.Size(118, 20);
+            this.txt_login.Size = new System.Drawing.Size(156, 20);
             this.txt_login.TabIndex = 0;
             // 
             // lbl_login
             // 
             this.lbl_login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbl_login.AutoSize = true;
-            this.lbl_login.Location = new System.Drawing.Point(99, 170);
-            this.lbl_login.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_login.Location = new System.Drawing.Point(130, 209);
             this.lbl_login.Name = "lbl_login";
-            this.lbl_login.Size = new System.Drawing.Size(88, 13);
+            this.lbl_login.Size = new System.Drawing.Size(115, 17);
             this.lbl_login.TabIndex = 2;
             this.lbl_login.Text = "Nom de compte :";
             // 
@@ -77,10 +76,9 @@
             // 
             this.lbl_password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbl_password.AutoSize = true;
-            this.lbl_password.Location = new System.Drawing.Point(99, 231);
-            this.lbl_password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_password.Location = new System.Drawing.Point(130, 284);
             this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(77, 13);
+            this.lbl_password.Size = new System.Drawing.Size(101, 17);
             this.lbl_password.TabIndex = 3;
             this.lbl_password.Text = "Mot de passe :";
             // 
@@ -88,12 +86,11 @@
             // 
             this.titre_connexion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.titre_connexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titre_connexion.Location = new System.Drawing.Point(86, 92);
-            this.titre_connexion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.titre_connexion.MaximumSize = new System.Drawing.Size(241, 30);
-            this.titre_connexion.MinimumSize = new System.Drawing.Size(241, 30);
+            this.titre_connexion.Location = new System.Drawing.Point(113, 113);
+            this.titre_connexion.MaximumSize = new System.Drawing.Size(321, 37);
+            this.titre_connexion.MinimumSize = new System.Drawing.Size(321, 37);
             this.titre_connexion.Name = "titre_connexion";
-            this.titre_connexion.Size = new System.Drawing.Size(241, 30);
+            this.titre_connexion.Size = new System.Drawing.Size(321, 37);
             this.titre_connexion.TabIndex = 4;
             this.titre_connexion.Text = "Réservation de salle";
             this.titre_connexion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -109,19 +106,21 @@
             this.pnl_connexion.Controls.Add(this.lbl_login);
             this.pnl_connexion.Controls.Add(this.txt_login);
             this.pnl_connexion.Controls.Add(this.txt_password);
-            this.pnl_connexion.Location = new System.Drawing.Point(12, 12);
+            this.pnl_connexion.Location = new System.Drawing.Point(16, 15);
+            this.pnl_connexion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_connexion.Name = "pnl_connexion";
-            this.pnl_connexion.Size = new System.Drawing.Size(402, 498);
+            this.pnl_connexion.Size = new System.Drawing.Size(533, 604);
             this.pnl_connexion.TabIndex = 5;
             // 
             // btn_connexion
             // 
             this.btn_connexion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btn_connexion.Location = new System.Drawing.Point(102, 283);
-            this.btn_connexion.MaximumSize = new System.Drawing.Size(207, 21);
-            this.btn_connexion.MinimumSize = new System.Drawing.Size(207, 21);
+            this.btn_connexion.Location = new System.Drawing.Point(134, 348);
+            this.btn_connexion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_connexion.MaximumSize = new System.Drawing.Size(276, 26);
+            this.btn_connexion.MinimumSize = new System.Drawing.Size(276, 26);
             this.btn_connexion.Name = "btn_connexion";
-            this.btn_connexion.Size = new System.Drawing.Size(207, 21);
+            this.btn_connexion.Size = new System.Drawing.Size(276, 26);
             this.btn_connexion.TabIndex = 5;
             this.btn_connexion.Text = "Connexion";
             this.btn_connexion.UseVisualStyleBackColor = true;
@@ -129,12 +128,13 @@
             // 
             // Connexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 522);
+            this.ClientSize = new System.Drawing.Size(565, 633);
             this.Controls.Add(this.pnl_connexion);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(442, 561);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(583, 680);
+            this.MinimumSize = new System.Drawing.Size(583, 680);
             this.Name = "Connexion";
             this.Text = "Connexion";
             this.pnl_connexion.ResumeLayout(false);

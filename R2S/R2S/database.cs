@@ -46,25 +46,34 @@ namespace R2S
         {
             int connecte = 0;
             // Set des valeurs de sqlCommand pour créer le lecteur sqlDataR
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = strQuery;
-            // Mettre un booléen pour gérer le cas ou la chaine de connexion à la db est fausse
-            sqlDataR = sqlCommand.ExecuteReader();
-            // Boucle pour lire toutes les lignes de la bdd
-            while (sqlDataR.Read())
+            try
             {
-                if (sqlDataR.GetValue(0).ToString() == tbLogin.Text && sqlDataR.GetValue(1).ToString() == GetHashPassword(tbPassword.Text) && sqlDataR.GetValue(3).ToString() == "2")
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandText = strQuery;
+                // Mettre un booléen pour gérer le cas ou la chaine de connexion à la db est fausse
+                sqlDataR = sqlCommand.ExecuteReader();
+                // Boucle pour lire toutes les lignes de la bdd
+                while (sqlDataR.Read())
                 {
-                    connecte = 2;
-                    break;
+                    if (sqlDataR.GetValue(0).ToString() == tbLogin.Text && sqlDataR.GetValue(1).ToString() == GetHashPassword(tbPassword.Text) && sqlDataR.GetValue(3).ToString() == "2")
+                    {
+                        connecte = 2;
+                        break;
+                    }
+                    if (sqlDataR.GetValue(0).ToString() == tbLogin.Text && sqlDataR.GetValue(1).ToString() == GetHashPassword(tbPassword.Text) && sqlDataR.GetValue(3).ToString() == "1")
+                    {
+                        connecte = 1;
+                        break;
+                    }
                 }
-                if (sqlDataR.GetValue(0).ToString() == tbLogin.Text && sqlDataR.GetValue(1).ToString() == GetHashPassword(tbPassword.Text) && sqlDataR.GetValue(3).ToString() == "1")
-                {
-                    connecte = 1;
-                    break;
-                }
+                sqlDataR.Dispose();
+                
             }
-            sqlDataR.Dispose();
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Errreur de connexion", "Attention");
+                connecte = -1;
+            }
             return connecte;
         }
 
@@ -79,7 +88,7 @@ namespace R2S
                 {
                     if (strQuery.Substring(i,2) == " *")
                     {
-                        strQuery = "SELECT count(*)," + strQuery.Substring(i+2, (strQuery.Length - i-2));
+                        strQuery = "SELECT count(*) " + strQuery.Substring(i+2, (strQuery.Length - i-2));
                         break;
                     }
                     strQuery = "SELECT count(*)," + strQuery.Substring(i, (strQuery.Length - i));
@@ -171,6 +180,7 @@ namespace R2S
             try
             {
                 sqlCommand.Connection = sqlConnection;
+                // Affectation de la transaction a notre commande
                 sqlCommand.Transaction = sqlTransaction;
                 // Choix du texte de la requete en fonction du tableau recu
                 switch (nonQuery[0,0])
@@ -183,18 +193,25 @@ namespace R2S
                                                 " WHERE utilisateur.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
                     case "ajoutUser":
-                        sqlCommand.CommandText = "INSERT INTO utilisateur (nom, prenom, login, password" + 
-                                                ((nonQuery[0, 6] == null || nonQuery[0, 6] == "") ? "": ", id_ligue,") + 
-                                                ((nonQuery[0, 7] == null || nonQuery[0, 7] == "") ? "" : ", id_salle") + ") VALUES (" + 
-                                                '"' + nonQuery[0, 2] + '"' + ", " + '"' + nonQuery[0, 3] + '"' + ", " + '"' + nonQuery[0, 4] + 
-                                                '"' + ", " + '"' + nonQuery[0, 5] + '"' + ", " + '"' + nonQuery[0, 6] + '"' + ", " + '"' + nonQuery[0, 7] + '"' + ")";
+                        sqlCommand.CommandText = "INSERT INTO utilisateur(nom, prenom, login, password " +
+                                                ((nonQuery[0, 6] == null || nonQuery[0, 6] == "") ? "" : ", id_ligue") +
+                                                ((nonQuery[0, 7] == null || nonQuery[0, 7] == "") ? "" : ", id_salle") +
+                                                ", id_groupe_utilisateur) " +
+                                                "VALUES (" + '"' + nonQuery[0, 2] + '"' + ", " + '"' + nonQuery[0, 3] + '"' + ", " +
+                                                '"' + nonQuery[0, 4] + '"' + ", " + '"' + nonQuery[0, 5] + '"' +
+                                                ((nonQuery[0, 6] == null || nonQuery[0, 6] == "") ? "" : ", "+'"' + nonQuery[0, 6] + '"') +
+                                                ((nonQuery[0, 7] == null || nonQuery[0, 7] == "") ? "" : ", "+'"' + nonQuery[0, 7] + '"') +
+                                                ", " + '"' + 2 + '"' + ");";
                         break;
-                    case "ligue":
+                    case "ajoutLigue":
+                        sqlCommand.CommandText = "INSERT INTO ligue(intitule) VALUES (" + '"' + nonQuery[0, 2] + '"' + ");";
+                        break;
+                    case "modifLigue":
                         sqlCommand.CommandText = "UPDATE ligue " +
                                                 "SET intitule = " + '"' + nonQuery[0, 2] + '"' +
                                                 " WHERE ligue.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
-                    case "salle":
+                    case "modifSalle":
                         sqlCommand.CommandText = "UPDATE salle " +
                                                 "SET localisation = " + '"' + nonQuery[0, 2] + '"' +
                                                 " WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
@@ -203,9 +220,6 @@ namespace R2S
                         MessageBox.Show("Erreur lors de l'écriture. Contactez votre administrateur", "Attention");
                         break;
                 }
-                
-                // Affectation de la transaction a notre commande
-                
                 // Envoi de la requete en BDD
                 sqlCommand.ExecuteNonQuery();
                 sqlTransaction.Commit();
@@ -221,11 +235,11 @@ namespace R2S
 
         public void ajouterSalarie()
         {
-            // Ouverture de la connexion
-            dbConnect();
-            // Ajout d'un salarié, probleme de INSERT INTO
-            modifSalarie add = new modifSalarie(dbQuery("Hello World"));
-
+            // Création d'un tableau de donnée vide pour initialiser le form d'ajout
+            string[,] tabDonnée;
+            tabDonnée = new string[1, 8];
+            // Création et visualisation du form
+            modifSalarie add = new modifSalarie(tabDonnée);
             add.Text = "Ajouter salarié";
             add.ShowDialog();
         }
@@ -240,7 +254,52 @@ namespace R2S
             modif.Text = "Modifier salarié";
             dbDisconnect();
             modif.ShowDialog();
-            
+        }
+
+        public void ajouterLigue()
+        {
+            // Création d'un tableau vide pour instancier le form
+            string[,] tabDonnee;
+            tabDonnee = new string[1, 2];
+            // Création et affichage du form
+            modifLigueSalle addLigue = new modifLigueSalle(tabDonnee);
+            addLigue.Text = "Ajouter Ligue";
+            addLigue.ShowDialog();
+        }
+
+        public void modifierLigue(string idLigue)
+        {
+            dbConnect();
+            // Création et affichage du form avec comme référence une requete avec comme id cible la ligne du tableau sélectionner
+            modifLigueSalle modifLigue = new modifLigueSalle(dbQuery("SELECT l.id, l.intitule " +
+                                                        "FROM ligue l " +
+                                                        "WHERE l.id = " + '"' + idLigue + '"' + ";"));
+            modifLigue.Text = "Modifier Ligue";
+            dbDisconnect();
+            modifLigue.ShowDialog();
+        }
+
+        public void ajouterSalle()
+        {
+            // Création d'un tableau vide pour instancier le form
+            string[,] tabDonnee;
+            tabDonnee = new string[1, 2];
+            // Création et affichage du form
+            modifLigueSalle ajoutSalle = new modifLigueSalle(tabDonnee);
+            ajoutSalle.Text = "Ajouter Salle";
+            ajoutSalle.ShowDialog();
+        }
+
+        public void modifierSalle(string idSalle)
+        {
+            dbConnect();
+            // Création et affichage du form avec comme référence une requete avec comme id cible la ligne du tableau sélectionner
+            modifLigueSalle modifSalle = new modifLigueSalle(dbQuery("SELECT s.id, s.localisation " +
+                                                        "FROM salle s " +
+                                                        "WHERE s.id = " + '"' + idSalle + '"' + ";"));
+            modifSalle.Text = "Modifier Salle";
+            dbDisconnect();
+            modifSalle.ShowDialog();
         }
     }
 }

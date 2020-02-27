@@ -49,6 +49,30 @@ namespace R2S
             db.dbDisconnect();
         }
 
-        
+        private void btn_admin_ligue_add_Click(object sender, EventArgs e)
+        {
+            db.ajouterLigue();
+            this.refreshList();
+        }
+
+        private void btn_admin_ligue_modif_Click(object sender, EventArgs e)
+        {
+            string valueCell = data_admin_ligue.Rows[data_admin_ligue.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
+            db.modifierLigue(valueCell);
+            this.refreshList();
+        }
+
+        private void btn_admin_salle_add_Click(object sender, EventArgs e)
+        {
+            db.ajouterSalle();
+            this.refreshList();
+        }
+
+        private void btn_admin_salle_modif_Click(object sender, EventArgs e)
+        {
+            string valueCell = data_admin_salle.Rows[data_admin_salle.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
+            db.modifierSalle(valueCell);
+            this.refreshList();
+        }
     }
 }

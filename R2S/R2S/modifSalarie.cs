@@ -88,7 +88,6 @@ namespace R2S
         private void btn_add_confirm_Click(object sender, EventArgs e)
         {
             db.dbConnect();
-            this.DialogResult = DialogResult.OK; // A vérifier comment cela fonctionne pour la transaction SQL
             if (txt_add_password.Text != "" && txt_add_nom.Text != "" && txt_add_prenom.Text != "" && txt_add_password.Text != "")
             {
                 // Vérification des logins existants par une boucle 
@@ -125,10 +124,11 @@ namespace R2S
                             this.returnValue[0, 6] = listLigue[i, 0];
                         }
                     }
-                }
+                } // REVOIR LES DEUX IF CI-DESSOUS ------------------------------------------>
                 // Si on modifier le salarié
                 if (this.Text == "Modifier salarié")
                 {
+                    // Modification de l'utilisateur
                     returnValue[0, 0] = "modifUser";
                     db.updateDB(returnValue);
                     this.Close();
@@ -139,7 +139,7 @@ namespace R2S
                 {
                     if (!loginNonUnique)// Si le login est unique alors :
                     {
-                        // AJOUT D'UN NOUVEAU SALARIE EN TEST !
+                        // Ajout d'utilisateur
                         returnValue[0, 0] = "ajoutUser";
                         db.updateDB(returnValue);
                         this.Close();

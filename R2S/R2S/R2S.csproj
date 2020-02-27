@@ -61,6 +61,12 @@
     <Compile Include="Administrateur.Designer.cs">
       <DependentUpon>Administrateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="modifLigueSalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modifLigueSalle.Designer.cs">
+      <DependentUpon>modifLigueSalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="modifSalarie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrateur.resx">
       <DependentUpon>Administrateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifLigueSalle.resx">
+      <DependentUpon>modifLigueSalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modifSalarie.resx">
       <DependentUpon>modifSalarie.cs</DependentUpon>

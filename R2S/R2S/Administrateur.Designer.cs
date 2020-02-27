@@ -184,15 +184,16 @@
             this.Numéro.MinimumWidth = 6;
             this.Numéro.Name = "Numéro";
             this.Numéro.ReadOnly = true;
+            this.Numéro.Visible = false;
             this.Numéro.Width = 125;
             // 
             // Intitulé
             // 
+            this.Intitulé.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Intitulé.HeaderText = "Intitulé";
             this.Intitulé.MinimumWidth = 6;
             this.Intitulé.Name = "Intitulé";
             this.Intitulé.ReadOnly = true;
-            this.Intitulé.Width = 125;
             // 
             // data_admin_salle
             // 
@@ -215,15 +216,16 @@
             this.Numéro_salle.MinimumWidth = 6;
             this.Numéro_salle.Name = "Numéro_salle";
             this.Numéro_salle.ReadOnly = true;
+            this.Numéro_salle.Visible = false;
             this.Numéro_salle.Width = 125;
             // 
             // Localisation
             // 
+            this.Localisation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Localisation.HeaderText = "Localisation";
             this.Localisation.MinimumWidth = 6;
             this.Localisation.Name = "Localisation";
             this.Localisation.ReadOnly = true;
-            this.Localisation.Width = 125;
             // 
             // lbl_admin_ligue
             // 
@@ -254,6 +256,7 @@
             this.btn_admin_salle_modif.TabIndex = 12;
             this.btn_admin_salle_modif.Text = "Modifier";
             this.btn_admin_salle_modif.UseVisualStyleBackColor = true;
+            this.btn_admin_salle_modif.Click += new System.EventHandler(this.btn_admin_salle_modif_Click);
             // 
             // btn_admin_salle_remove
             // 
@@ -274,6 +277,7 @@
             this.btn_admin_salle_add.TabIndex = 10;
             this.btn_admin_salle_add.Text = "Ajouter";
             this.btn_admin_salle_add.UseVisualStyleBackColor = true;
+            this.btn_admin_salle_add.Click += new System.EventHandler(this.btn_admin_salle_add_Click);
             // 
             // btn_admin_ligue_modif
             // 
@@ -284,6 +288,7 @@
             this.btn_admin_ligue_modif.TabIndex = 15;
             this.btn_admin_ligue_modif.Text = "Modifier";
             this.btn_admin_ligue_modif.UseVisualStyleBackColor = true;
+            this.btn_admin_ligue_modif.Click += new System.EventHandler(this.btn_admin_ligue_modif_Click);
             // 
             // btn_admin_ligue_suppr
             // 
@@ -304,6 +309,7 @@
             this.btn_admin_ligue_add.TabIndex = 13;
             this.btn_admin_ligue_add.Text = "Ajouter";
             this.btn_admin_ligue_add.UseVisualStyleBackColor = true;
+            this.btn_admin_ligue_add.Click += new System.EventHandler(this.btn_admin_ligue_add_Click);
             // 
             // Administrateur
             // 
@@ -326,6 +332,8 @@
             this.Controls.Add(this.btn_admin_salarie_add);
             this.Controls.Add(this.lbl_admin_salarie);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1298, 687);
+            this.MinimumSize = new System.Drawing.Size(1298, 687);
             this.Name = "Administrateur";
             this.Text = "Administrateur";
             this.Shown += new System.EventHandler(this.Administrateur_Shown);
@@ -343,11 +351,7 @@
         private System.Windows.Forms.Button btn_admin_salarie_remove;
         private System.Windows.Forms.Button btn_admin_salarie_modif;
         private System.Windows.Forms.DataGridView data_admin_ligue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numéro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Intitulé;
         private System.Windows.Forms.DataGridView data_admin_salle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numéro_salle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Localisation;
         private System.Windows.Forms.Label lbl_admin_ligue;
         private System.Windows.Forms.Label lbl_admin_salle;
         private System.Windows.Forms.Button btn_admin_salle_modif;
@@ -362,5 +366,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ligue;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salle;
         internal System.Windows.Forms.DataGridView data_admin_salarie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numéro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Intitulé;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numéro_salle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Localisation;
     }
 }
