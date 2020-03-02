@@ -92,22 +92,37 @@ namespace R2S
 
         private void btn_admin_salarie_remove_Click(object sender, EventArgs e)
         {
-            string valueCell = data_admin_salarie.Rows[data_admin_salarie.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
-            db.supprSalarie(valueCell);
+            Object valeur = data_admin_salarie.Rows[data_admin_salarie.SelectedCells[0].RowIndex].Cells[0].Value;
+            if (valeur == null) MessageBox.Show("Aucun utilisateur sélectionné", "ATTENTION");
+            else
+            {
+                string valueCell = valeur.ToString();
+                db.supprSalarie(valueCell);
+            }
             this.refreshList();
         }
 
         private void btn_admin_ligue_suppr_Click(object sender, EventArgs e)
         {
-            string valueCell = data_admin_ligue.Rows[data_admin_ligue.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
-            db.supprLigue(valueCell);
+            Object valeur = data_admin_ligue.Rows[data_admin_ligue.SelectedCells[0].RowIndex].Cells[0].Value;
+            if (valeur == null) MessageBox.Show("Aucun ligue sélectionnée", "ATTENTION");
+            else
+            {
+                string valueCell = valeur.ToString();
+                db.supprLigue(valueCell);
+            }
             this.refreshList();
         }
 
         private void btn_admin_salle_remove_Click(object sender, EventArgs e)
         {
-            string valueCell = data_admin_salle.Rows[data_admin_salle.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
-            db.supprSalle(valueCell);
+            Object valeur = data_admin_salle.Rows[data_admin_salle.SelectedCells[0].RowIndex].Cells[0].Value;
+            if (valeur == null) MessageBox.Show("Aucune salle sélectionnée", "ATTENTION");
+            else
+            {
+                string valueCell = valeur.ToString();
+                db.supprSalle(valueCell);
+            }
             this.refreshList();
         }
 

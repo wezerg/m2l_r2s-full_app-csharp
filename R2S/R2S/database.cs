@@ -13,7 +13,7 @@ namespace R2S
     {
         // Appel de la classe password pour les hachages :
         // On créer la chaine de caractère de connexion à la BDD
-        static string strConnection = "server=127.0.0.1;uid=root;database=r2s";
+        static string strConnection = "server=127.0.0.1;password='@Aqw753+-/*';uid=root;database=r2s";
         // Instanciation des différentes variables nécessaire au SQL.
         MySqlConnection sqlConnection = new MySqlConnection(strConnection);
         MySqlCommand sqlCommand = new MySqlCommand();
@@ -203,6 +203,10 @@ namespace R2S
                                                 ((nonQuery[0, 7] == null || nonQuery[0, 7] == "") ? "" : ", "+'"' + nonQuery[0, 7] + '"') +
                                                 ", " + '"' + 2 + '"' + ");";
                         break;
+                    case "supprSalarie": // ATTENTION, il faudra gérer la suppression des réservations de l'utilisateur
+                        sqlCommand.CommandText = "DELETE FROM utilisateur " +
+                                                "WHERE utilisateur.id = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        break;
                     case "ajoutLigue":
                         sqlCommand.CommandText = "INSERT INTO ligue(intitule) VALUES (" + '"' + nonQuery[0, 2] + '"' + ");";
                         break;
@@ -211,6 +215,10 @@ namespace R2S
                                                 "SET intitule = " + '"' + nonQuery[0, 2] + '"' +
                                                 " WHERE ligue.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
+                    case "supprLigue":
+                        sqlCommand.CommandText = "DELETE FROM ligue " +
+                                                "WHERE ligue.id = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        break;
                     case "ajoutSalle":
                         sqlCommand.CommandText = "INSERT INTO salle(localisation) VALUES (" + '"' + nonQuery[0, 2] + '"' + ");";
                         break;
@@ -218,6 +226,10 @@ namespace R2S
                         sqlCommand.CommandText = "UPDATE salle " +
                                                 "SET localisation = " + '"' + nonQuery[0, 2] + '"' +
                                                 " WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        break;
+                    case "supprSalle": // ATTENTION, il faudra gérer la suppression des réservations de l'utilisateur
+                        sqlCommand.CommandText = "DELETE FROM salle " +
+                                                "WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
                     default:
                         MessageBox.Show("Erreur lors de l'écriture. Contactez votre administrateur", "Attention");
