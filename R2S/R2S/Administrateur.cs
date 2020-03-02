@@ -32,8 +32,13 @@ namespace R2S
         private void btn_admin_salarie_modif_Click(object sender, EventArgs e)
         {
             // Récupération de l'id du salarié sélectionné
-            string valueCell = data_admin_salarie.Rows[data_admin_salarie.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
-            db.modifierSalarie(valueCell);
+            Object valeur = data_admin_salarie.Rows[data_admin_salarie.SelectedCells[0].RowIndex].Cells[0].Value;
+            if (valeur == null) MessageBox.Show("Aucun utilisateur sélectionné", "ATTENTION");
+            else
+            {
+                string valueCell = valeur.ToString();
+                db.modifierSalarie(valueCell);
+            }
             this.refreshList();
         }
 
@@ -57,8 +62,13 @@ namespace R2S
 
         private void btn_admin_ligue_modif_Click(object sender, EventArgs e)
         {
-            string valueCell = data_admin_ligue.Rows[data_admin_ligue.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
-            db.modifierLigue(valueCell);
+            Object valeur = data_admin_ligue.Rows[data_admin_ligue.SelectedCells[0].RowIndex].Cells[0].Value;
+            if (valeur == null) MessageBox.Show("Aucune ligue sélectionnée", "ATTENTION");
+            else
+            {
+                string valueCell = valeur.ToString();
+                db.modifierLigue(valueCell);
+            }
             this.refreshList();
         }
 
@@ -70,8 +80,13 @@ namespace R2S
 
         private void btn_admin_salle_modif_Click(object sender, EventArgs e)
         {
-            string valueCell = data_admin_salle.Rows[data_admin_salle.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
-            db.modifierSalle(valueCell);
+            Object valeur = data_admin_salle.Rows[data_admin_salle.SelectedCells[0].RowIndex].Cells[0].Value;
+            if (valeur == null) MessageBox.Show("Aucune salle sélectionnée", "ATTENTION");
+            else
+            {
+                string valueCell = valeur.ToString();
+                db.modifierSalle(valueCell);
+            }
             this.refreshList();
         }
 
@@ -94,6 +109,18 @@ namespace R2S
             string valueCell = data_admin_salle.Rows[data_admin_salle.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
             db.supprSalle(valueCell);
             this.refreshList();
+        }
+
+        private void Administrateur_Paint(object sender, PaintEventArgs e)
+        {
+            if (data_admin_salarie.SelectedCells.Count == 0) btn_admin_salarie_modif.Enabled = false;
+            else btn_admin_salarie_modif.Enabled = true;
+
+            if (data_admin_ligue.SelectedCells.Count == 0) btn_admin_ligue_modif.Enabled = false;
+            else btn_admin_ligue_modif.Enabled = true;
+
+            if (data_admin_salle.SelectedCells.Count == 0) btn_admin_salle_modif.Enabled = false;
+            else btn_admin_salle_modif.Enabled = true;
         }
     }
 }

@@ -60,17 +60,19 @@
             // lbl_admin_salarie
             // 
             this.lbl_admin_salarie.AutoSize = true;
-            this.lbl_admin_salarie.Location = new System.Drawing.Point(12, 9);
+            this.lbl_admin_salarie.Location = new System.Drawing.Point(16, 11);
+            this.lbl_admin_salarie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_admin_salarie.Name = "lbl_admin_salarie";
-            this.lbl_admin_salarie.Size = new System.Drawing.Size(101, 13);
+            this.lbl_admin_salarie.Size = new System.Drawing.Size(137, 17);
             this.lbl_admin_salarie.TabIndex = 1;
             this.lbl_admin_salarie.Text = "Gestion des salariés";
             // 
             // btn_admin_salarie_add
             // 
-            this.btn_admin_salarie_add.Location = new System.Drawing.Point(12, 412);
+            this.btn_admin_salarie_add.Location = new System.Drawing.Point(16, 507);
+            this.btn_admin_salarie_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_salarie_add.Name = "btn_admin_salarie_add";
-            this.btn_admin_salarie_add.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_salarie_add.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_salarie_add.TabIndex = 2;
             this.btn_admin_salarie_add.Text = "Ajouter";
             this.btn_admin_salarie_add.UseVisualStyleBackColor = true;
@@ -78,9 +80,10 @@
             // 
             // btn_admin_salarie_remove
             // 
-            this.btn_admin_salarie_remove.Location = new System.Drawing.Point(592, 412);
+            this.btn_admin_salarie_remove.Location = new System.Drawing.Point(789, 507);
+            this.btn_admin_salarie_remove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_salarie_remove.Name = "btn_admin_salarie_remove";
-            this.btn_admin_salarie_remove.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_salarie_remove.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_salarie_remove.TabIndex = 3;
             this.btn_admin_salarie_remove.Text = "Supprimer";
             this.btn_admin_salarie_remove.UseVisualStyleBackColor = true;
@@ -88,9 +91,10 @@
             // 
             // btn_admin_salarie_modif
             // 
-            this.btn_admin_salarie_modif.Location = new System.Drawing.Point(89, 412);
+            this.btn_admin_salarie_modif.Location = new System.Drawing.Point(119, 507);
+            this.btn_admin_salarie_modif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_salarie_modif.Name = "btn_admin_salarie_modif";
-            this.btn_admin_salarie_modif.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_salarie_modif.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_salarie_modif.TabIndex = 4;
             this.btn_admin_salarie_modif.Text = "Modifier";
             this.btn_admin_salarie_modif.UseVisualStyleBackColor = true;
@@ -106,12 +110,13 @@
             this.Prénom,
             this.Ligue,
             this.Salle});
-            this.data_admin_salarie.Location = new System.Drawing.Point(12, 25);
+            this.data_admin_salarie.Location = new System.Drawing.Point(16, 31);
+            this.data_admin_salarie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.data_admin_salarie.MultiSelect = false;
             this.data_admin_salarie.Name = "data_admin_salarie";
             this.data_admin_salarie.ReadOnly = true;
             this.data_admin_salarie.RowHeadersWidth = 51;
-            this.data_admin_salarie.Size = new System.Drawing.Size(652, 381);
+            this.data_admin_salarie.Size = new System.Drawing.Size(869, 469);
             this.data_admin_salarie.TabIndex = 5;
             // 
             // Numéro_salarié
@@ -166,12 +171,13 @@
             this.data_admin_ligue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numéro,
             this.Intitulé});
-            this.data_admin_ligue.Location = new System.Drawing.Point(670, 25);
+            this.data_admin_ligue.Location = new System.Drawing.Point(893, 31);
+            this.data_admin_ligue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.data_admin_ligue.MultiSelect = false;
             this.data_admin_ligue.Name = "data_admin_ligue";
             this.data_admin_ligue.ReadOnly = true;
             this.data_admin_ligue.RowHeadersWidth = 51;
-            this.data_admin_ligue.Size = new System.Drawing.Size(245, 129);
+            this.data_admin_ligue.Size = new System.Drawing.Size(327, 159);
             this.data_admin_ligue.TabIndex = 6;
             // 
             // Numéro
@@ -197,12 +203,13 @@
             this.data_admin_salle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numéro_salle,
             this.Localisation});
-            this.data_admin_salle.Location = new System.Drawing.Point(670, 284);
+            this.data_admin_salle.Location = new System.Drawing.Point(893, 350);
+            this.data_admin_salle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.data_admin_salle.MultiSelect = false;
             this.data_admin_salle.Name = "data_admin_salle";
             this.data_admin_salle.ReadOnly = true;
             this.data_admin_salle.RowHeadersWidth = 51;
-            this.data_admin_salle.Size = new System.Drawing.Size(245, 122);
+            this.data_admin_salle.Size = new System.Drawing.Size(327, 150);
             this.data_admin_salle.TabIndex = 7;
             // 
             // Numéro_salle
@@ -225,26 +232,29 @@
             // lbl_admin_ligue
             // 
             this.lbl_admin_ligue.AutoSize = true;
-            this.lbl_admin_ligue.Location = new System.Drawing.Point(667, 9);
+            this.lbl_admin_ligue.Location = new System.Drawing.Point(889, 11);
+            this.lbl_admin_ligue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_admin_ligue.Name = "lbl_admin_ligue";
-            this.lbl_admin_ligue.Size = new System.Drawing.Size(93, 13);
+            this.lbl_admin_ligue.Size = new System.Drawing.Size(125, 17);
             this.lbl_admin_ligue.TabIndex = 8;
             this.lbl_admin_ligue.Text = "Gestion des ligues";
             // 
             // lbl_admin_salle
             // 
             this.lbl_admin_salle.AutoSize = true;
-            this.lbl_admin_salle.Location = new System.Drawing.Point(667, 268);
+            this.lbl_admin_salle.Location = new System.Drawing.Point(889, 330);
+            this.lbl_admin_salle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_admin_salle.Name = "lbl_admin_salle";
-            this.lbl_admin_salle.Size = new System.Drawing.Size(92, 13);
+            this.lbl_admin_salle.Size = new System.Drawing.Size(124, 17);
             this.lbl_admin_salle.TabIndex = 9;
             this.lbl_admin_salle.Text = "Gestion des salles";
             // 
             // btn_admin_salle_modif
             // 
-            this.btn_admin_salle_modif.Location = new System.Drawing.Point(747, 412);
+            this.btn_admin_salle_modif.Location = new System.Drawing.Point(996, 507);
+            this.btn_admin_salle_modif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_salle_modif.Name = "btn_admin_salle_modif";
-            this.btn_admin_salle_modif.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_salle_modif.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_salle_modif.TabIndex = 12;
             this.btn_admin_salle_modif.Text = "Modifier";
             this.btn_admin_salle_modif.UseVisualStyleBackColor = true;
@@ -252,9 +262,10 @@
             // 
             // btn_admin_salle_remove
             // 
-            this.btn_admin_salle_remove.Location = new System.Drawing.Point(844, 412);
+            this.btn_admin_salle_remove.Location = new System.Drawing.Point(1125, 507);
+            this.btn_admin_salle_remove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_salle_remove.Name = "btn_admin_salle_remove";
-            this.btn_admin_salle_remove.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_salle_remove.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_salle_remove.TabIndex = 11;
             this.btn_admin_salle_remove.Text = "Supprimer";
             this.btn_admin_salle_remove.UseVisualStyleBackColor = true;
@@ -262,9 +273,10 @@
             // 
             // btn_admin_salle_add
             // 
-            this.btn_admin_salle_add.Location = new System.Drawing.Point(670, 412);
+            this.btn_admin_salle_add.Location = new System.Drawing.Point(893, 507);
+            this.btn_admin_salle_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_salle_add.Name = "btn_admin_salle_add";
-            this.btn_admin_salle_add.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_salle_add.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_salle_add.TabIndex = 10;
             this.btn_admin_salle_add.Text = "Ajouter";
             this.btn_admin_salle_add.UseVisualStyleBackColor = true;
@@ -272,9 +284,10 @@
             // 
             // btn_admin_ligue_modif
             // 
-            this.btn_admin_ligue_modif.Location = new System.Drawing.Point(747, 160);
+            this.btn_admin_ligue_modif.Location = new System.Drawing.Point(996, 197);
+            this.btn_admin_ligue_modif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_ligue_modif.Name = "btn_admin_ligue_modif";
-            this.btn_admin_ligue_modif.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_ligue_modif.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_ligue_modif.TabIndex = 15;
             this.btn_admin_ligue_modif.Text = "Modifier";
             this.btn_admin_ligue_modif.UseVisualStyleBackColor = true;
@@ -282,9 +295,10 @@
             // 
             // btn_admin_ligue_suppr
             // 
-            this.btn_admin_ligue_suppr.Location = new System.Drawing.Point(844, 160);
+            this.btn_admin_ligue_suppr.Location = new System.Drawing.Point(1125, 197);
+            this.btn_admin_ligue_suppr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_ligue_suppr.Name = "btn_admin_ligue_suppr";
-            this.btn_admin_ligue_suppr.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_ligue_suppr.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_ligue_suppr.TabIndex = 14;
             this.btn_admin_ligue_suppr.Text = "Supprimer";
             this.btn_admin_ligue_suppr.UseVisualStyleBackColor = true;
@@ -292,9 +306,10 @@
             // 
             // btn_admin_ligue_add
             // 
-            this.btn_admin_ligue_add.Location = new System.Drawing.Point(670, 160);
+            this.btn_admin_ligue_add.Location = new System.Drawing.Point(893, 197);
+            this.btn_admin_ligue_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_admin_ligue_add.Name = "btn_admin_ligue_add";
-            this.btn_admin_ligue_add.Size = new System.Drawing.Size(71, 37);
+            this.btn_admin_ligue_add.Size = new System.Drawing.Size(95, 46);
             this.btn_admin_ligue_add.TabIndex = 13;
             this.btn_admin_ligue_add.Text = "Ajouter";
             this.btn_admin_ligue_add.UseVisualStyleBackColor = true;
@@ -302,9 +317,9 @@
             // 
             // Administrateur
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 526);
+            this.ClientSize = new System.Drawing.Size(1280, 638);
             this.Controls.Add(this.btn_admin_ligue_modif);
             this.Controls.Add(this.btn_admin_ligue_suppr);
             this.Controls.Add(this.btn_admin_ligue_add);
@@ -320,11 +335,13 @@
             this.Controls.Add(this.btn_admin_salarie_remove);
             this.Controls.Add(this.btn_admin_salarie_add);
             this.Controls.Add(this.lbl_admin_salarie);
-            this.MaximumSize = new System.Drawing.Size(978, 565);
-            this.MinimumSize = new System.Drawing.Size(978, 565);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(1298, 685);
+            this.MinimumSize = new System.Drawing.Size(1298, 685);
             this.Name = "Administrateur";
             this.Text = "Administrateur";
             this.Shown += new System.EventHandler(this.Administrateur_Shown);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Administrateur_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.data_admin_salarie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_admin_ligue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.data_admin_salle)).EndInit();

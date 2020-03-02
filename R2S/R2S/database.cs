@@ -13,7 +13,7 @@ namespace R2S
     {
         // Appel de la classe password pour les hachages :
         // On créer la chaine de caractère de connexion à la BDD
-        static string strConnection = "server=127.0.0.1;uid=root;password='@Aqw753+-/*';database=r2s";
+        static string strConnection = "server=127.0.0.1;uid=root;database=r2s";
         // Instanciation des différentes variables nécessaire au SQL.
         MySqlConnection sqlConnection = new MySqlConnection(strConnection);
         MySqlCommand sqlCommand = new MySqlCommand();
@@ -242,7 +242,7 @@ namespace R2S
             string[,] tabDonnée;
             tabDonnée = new string[1, 8];
             // Création et visualisation du form
-            modifSalarie add = new modifSalarie(tabDonnée);
+            modifSalarie add = new modifSalarie(tabDonnée, "ajout");
             add.Text = "Ajouter salarié";
             add.ShowDialog();
         }
@@ -253,7 +253,7 @@ namespace R2S
             // Création de la fenetre modification avec insertion des informations du salariés selectionné dans la dataGridView
             modifSalarie modif = new modifSalarie(dbQuery("SELECT u.id, u.nom, u.prenom, u.login, u.password, u.id_ligue, u.id_salle " +
                                                             "FROM utilisateur u " +
-                                                            "WHERE u.id =" + '"' + idUser + '"' + ";"));
+                                                            "WHERE u.id =" + '"' + idUser + '"' + ";"), "modif");
             modif.Text = "Modifier salarié";
             dbDisconnect();
             modif.ShowDialog();

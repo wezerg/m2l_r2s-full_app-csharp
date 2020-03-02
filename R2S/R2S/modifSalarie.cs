@@ -20,7 +20,7 @@ namespace R2S
         private string [,] returnValue;
         int index_ligue = -1;
         int index_salle = -1;
-        public modifSalarie(string [,] tabDonnees)
+        public modifSalarie(string [,] tabDonnees, string type)
         {
             InitializeComponent();
             // Incrémentation des valeurs du formulaire avec les données du salariés choisi
@@ -54,11 +54,11 @@ namespace R2S
                 }
             }
             // Selection de l'objet ou message d'erreur
-            if (index_ligue == -1)
+            if (type == "modif" && index_ligue == -1)
             {
                 MessageBox.Show("Le salarié ne possède pas de ligue.", "Attention");
             }
-            else
+            else if(type == "modif")
             {
                 cho_add_ligue.SetSelected(index_ligue, true);
             }
@@ -71,11 +71,11 @@ namespace R2S
                 }
             }
             // Selection de l'objet ou message d'erreur
-            if (index_salle == -1)
+            if (type == "modif" && index_salle == -1)
             {
                 MessageBox.Show("Le salarié ne possède pas de salle.", "Attention");
             }
-            else
+            else if(type == "modif")
             {
                 cho_add_salle.SetSelected(index_salle, true);
             }
@@ -88,7 +88,7 @@ namespace R2S
         private void btn_add_confirm_Click(object sender, EventArgs e)
         {
             db.dbConnect();
-            if (txt_add_password.Text != "" && txt_add_nom.Text != "" && txt_add_prenom.Text != "" && txt_add_password.Text != "")
+            if (txt_add_password.Text != "" && txt_add_nom.Text != "" && txt_add_prenom.Text != "" && txt_add_login.Text != "")
             {
                 // Vérification des logins existants par une boucle 
                 verifLogin = db.dbQuery("SELECT u.login FROM utilisateur u;");
