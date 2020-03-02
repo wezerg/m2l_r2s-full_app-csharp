@@ -211,6 +211,9 @@ namespace R2S
                                                 "SET intitule = " + '"' + nonQuery[0, 2] + '"' +
                                                 " WHERE ligue.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
+                    case "ajoutSalle":
+                        sqlCommand.CommandText = "INSERT INTO salle(localisation) VALUES (" + '"' + nonQuery[0, 2] + '"' + ");";
+                        break;
                     case "modifSalle":
                         sqlCommand.CommandText = "UPDATE salle " +
                                                 "SET localisation = " + '"' + nonQuery[0, 2] + '"' +
@@ -256,6 +259,17 @@ namespace R2S
             modif.ShowDialog();
         }
 
+        public void supprSalarie(string idUser)
+        {
+            dbConnect();
+            supprLigueSalleSalarie supprSalarie = new supprLigueSalleSalarie(dbQuery("SELECT u.id, u.nom, u.prenom " +
+                                                                                        "FROM utilisateur u " +
+                                                                                        "WHERE u.id = " + '"' + idUser + '"' + ";"));
+            supprSalarie.Text = "Supprimer Salarié";
+            dbDisconnect();
+            supprSalarie.ShowDialog();
+        }
+
         public void ajouterLigue()
         {
             // Création d'un tableau vide pour instancier le form
@@ -279,6 +293,17 @@ namespace R2S
             modifLigue.ShowDialog();
         }
 
+        public void supprLigue(string idLigue)
+        {
+            dbConnect();
+            supprLigueSalleSalarie supprLigue = new supprLigueSalleSalarie(dbQuery("SELECT l.id, l.intitule " +
+                                                                                    "FROM ligue l " +
+                                                                                    "WHERE l.id = " + '"' + idLigue + '"' + ";"));
+            dbDisconnect();
+            supprLigue.Text = "Supprimer Ligue";
+            supprLigue.ShowDialog();
+        }
+
         public void ajouterSalle()
         {
             // Création d'un tableau vide pour instancier le form
@@ -300,6 +325,17 @@ namespace R2S
             modifSalle.Text = "Modifier Salle";
             dbDisconnect();
             modifSalle.ShowDialog();
+        }
+
+        public void supprSalle(string idSalle)
+        {
+            dbConnect();
+            supprLigueSalleSalarie supprSalle = new supprLigueSalleSalarie(dbQuery("SELECT s.id, s.localisation " +
+                                                                                    "FROM salle s " +
+                                                                                    "WHERE s.id = " + '"' + idSalle + '"' + ";"));
+            dbDisconnect();
+            supprSalle.Text = "Supprimer Salle";
+            supprSalle.ShowDialog();
         }
     }
 }

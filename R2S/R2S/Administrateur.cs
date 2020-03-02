@@ -74,5 +74,26 @@ namespace R2S
             db.modifierSalle(valueCell);
             this.refreshList();
         }
+
+        private void btn_admin_salarie_remove_Click(object sender, EventArgs e)
+        {
+            string valueCell = data_admin_salarie.Rows[data_admin_salarie.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
+            db.supprSalarie(valueCell);
+            this.refreshList();
+        }
+
+        private void btn_admin_ligue_suppr_Click(object sender, EventArgs e)
+        {
+            string valueCell = data_admin_ligue.Rows[data_admin_ligue.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
+            db.supprLigue(valueCell);
+            this.refreshList();
+        }
+
+        private void btn_admin_salle_remove_Click(object sender, EventArgs e)
+        {
+            string valueCell = data_admin_salle.Rows[data_admin_salle.SelectedCells[0].RowIndex].Cells[0].Value.ToString();
+            db.supprSalle(valueCell);
+            this.refreshList();
+        }
     }
 }

@@ -62,10 +62,35 @@ namespace R2S
                         this.Dispose();
                     }
                 }
+                if (this.Text == "Ajouter Salle")
+                {
+                    // Envoi dans le switch de db
+                    returnValue[0, 0] = "ajoutSalle";
+                    db.updateDB(returnValue);
+                    db.dbDisconnect();
+                    this.Close();
+                    this.Dispose();
+                }
+                if (this.Text == "Modifier Salle")
+                {
+                    returnValue[0, 0] = "modifSalle";
+                    db.updateDB(returnValue);
+                    db.dbDisconnect();
+                    this.Close();
+                    this.Dispose();
+                }
             }
             else
             {
-                MessageBox.Show("Le champs intitulé de votre ligue ne peux être vide", "Attention");
+                if (this.Text == "Ajouter Ligue" || this.Text == "Modifier Ligue")
+                {
+                    MessageBox.Show("Le champs intitulé de votre ligue ne peux être vide", "Attention");
+                }
+                else
+                {
+                    MessageBox.Show("Le champs localisation de votre salle ne peux être vide", "Attention");
+                }
+                
             }
 
             db.dbDisconnect();

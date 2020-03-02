@@ -58,5 +58,5 @@ D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\ob
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.exe
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.pdb
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.modifSalarie.resources
-D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\MySql.Data.dll
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.modifLigueSalle.resources
+D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.supprLigueSalleSalarie.resources
