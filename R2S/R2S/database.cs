@@ -183,6 +183,10 @@ namespace R2S
                 // Affectation de la transaction a notre commande
                 sqlCommand.Transaction = sqlTransaction;
                 // Choix du texte de la requete en fonction du tableau recu
+                /* Case 0 du tableau -> case du switch
+                 * Case 1 du tableau -> id de la donnée
+                 * Case 2 du tableau -> nom
+                 */
                 switch (nonQuery[0,0])
                 {
                     case "modifUser":
@@ -227,7 +231,7 @@ namespace R2S
                                                 "SET localisation = " + '"' + nonQuery[0, 2] + '"' +
                                                 " WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
-                    case "supprSalle": // ATTENTION, il faudra gérer la suppression des réservations de l'utilisateur
+                    case "supprSalle": // ATTENTION, il faudra gérer la suppression des réservations lié a la salle
                         sqlCommand.CommandText = "DELETE FROM salle " +
                                                 "WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
