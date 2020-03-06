@@ -235,6 +235,11 @@ namespace R2S
                         sqlCommand.CommandText = "DELETE FROM salle " +
                                                 "WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
+                    case "resa":
+                        sqlCommand.CommandText = "INSERT INTO reservation (raison, date_debut, date_fin, id_utilisateur, id_salle) " +
+                                                "VALUES (" + '"' + nonQuery[0, 1] + '"' + ", " + '"' + nonQuery[0, 2] + '"' + ", " + '"' + nonQuery[0, 3] + '"' +
+                                                ", " + '"' + nonQuery[0, 4] + '"' + ", " + '"' + nonQuery[0, 5] + '"' + ");";
+                        break;
                     default:
                         MessageBox.Show("Erreur lors de l'écriture. Contactez votre administrateur", "Attention");
                         break;

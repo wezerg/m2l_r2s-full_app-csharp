@@ -31,10 +31,10 @@ namespace R2S
             {
                 db.dbConnect();
                 // Chaine de requete pour la vérification des utilisateurs
-                strQuery = "SELECT utilisateur.login, utilisateur.password, utilisateur.id, utilisateur.id_groupe_utilisateur FROM utilisateur";
+                strQuery = "SELECT utilisateur.login, utilisateur.password, utilisateur.id, utilisateur.id_groupe_utilisateur, utilisateur.id_ligue, utilisateur.id_salle, utilisateur. nom, utilisateur.prenom FROM utilisateur";
                 if (db.userCertif(strQuery, txt_login, txt_password) == 2)
                 {
-                    Accueil acceuil = new Accueil();
+                    Accueil acceuil = new Accueil(db.dbQuery(strQuery + " WHERE utilisateur.login = " + '"' + txt_login.Text + '"' + " && utilisateur.password = " + '"' + db.GetHashPassword(txt_password.Text) + '"' + ";"));
                     this.Hide();
                     acceuil.Show();
                     
