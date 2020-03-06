@@ -74,14 +74,15 @@ namespace R2S
                         tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGreen;
                     }
                     
+                    affichageCalendar1[refreshTab, 0] = null;
+                    affichageCalendar1[refreshTab, 1] = null;
+                    affichageCalendar1[refreshTab, 2] = null;
+                    affichageCalendar2[refreshTab, 0] = null;
+                    affichageCalendar2[refreshTab, 1] = null;
+                    affichageCalendar2[refreshTab, 2] = null;
+                    refreshTab++;
                 }
-                affichageCalendar1[refreshTab, 0] = null;
-                affichageCalendar1[refreshTab, 1] = null;
-                affichageCalendar1[refreshTab, 2] = null;
-                affichageCalendar2[refreshTab, 0] = null;
-                affichageCalendar2[refreshTab, 1] = null;
-                affichageCalendar2[refreshTab, 2] = null;
-                refreshTab++;
+                refreshTab = 0;
             }
 
             string[,] tabQuery;
