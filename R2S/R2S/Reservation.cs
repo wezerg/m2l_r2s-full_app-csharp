@@ -17,9 +17,6 @@ namespace R2S
         public Reservation(string [,] input)
         {
             /* Gérer les cas suivants :
-             * Si aucun créneau n'est selectionnés
-             * Si une réservation existe entre les deux créneaux choisi
-             * Si c'est un dimanche
              * Si il y a plusieurs réservation, les séparés
              * A RAJOUTER AU BESOIN ------>
              * 
@@ -52,6 +49,8 @@ namespace R2S
                 db.dbConnect();
                 db.updateDB(envoiBDD);
                 db.dbDisconnect();
+                // Envoi d'un dialog result pour le rafraichissement du tableau
+                this.DialogResult = DialogResult.OK;
                 // Fermeture du form
                 this.Close();
                 this.Dispose();
@@ -64,6 +63,8 @@ namespace R2S
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            // Envoi d'un dialog result pour le rafraichissement du tableau
+            this.DialogResult = DialogResult.Cancel;
             // Retour au form du calendrier sans envoi en BDD
             this.Close();
             this.Dispose();

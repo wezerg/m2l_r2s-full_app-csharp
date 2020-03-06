@@ -39,7 +39,7 @@ namespace R2S
             {
                 p.BackColor = Color.LightGreen;
             }
-            else // Avertissement, créneau déja existant
+            else if (p.BackColor == Color.Crimson)// Avertissement, créneau déja existant
             {
                 MessageBox.Show("Ce créneaux horaire est déja réservé", "Attention");
             }
@@ -56,11 +56,24 @@ namespace R2S
             // REVOIR CETTE METHODE POUR L'AMELIORER ------------------>
             // Clean des panel de couleur + clean du tableau de donnée
             int refreshTab = 0;
-            for (int i = 1; i < (affichageCalendar1.GetLength(0)+1); i++)
+            for (int j = 1; j < 3; j++)
             {
-                for (int j = 1; j < 3; j++)
+                for (int i = 1; i < (affichageCalendar1.GetLength(0) + 1); i++)
                 {
-                    tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGreen;
+                    // Conditions pour vérifier si le jour selectionner ou le suivants sont des dimanches
+                    if (accueil_calendar.SelectionStart.ToLongDateString().Substring(0, 3) == "dim" && j == 1)
+                    {
+                        tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGray;
+                    }
+                    else if (accueil_calendar.SelectionStart.AddDays(1).ToLongDateString().Substring(0, 3) == "dim" && j == 2)
+                    {
+                        tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGray;
+                    }
+                    else
+                    {
+                        tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGreen;
+                    }
+                    
                 }
                 affichageCalendar1[refreshTab, 0] = null;
                 affichageCalendar1[refreshTab, 1] = null;
@@ -145,7 +158,10 @@ namespace R2S
         {
             // Tableau d'envoi de donnée au formulaire de confirmation
             string[,] returnValue = new string[1, 8];
-            /* Incrémentation du tableau a envoyer pour la confirmation:
+            int debut = 0;
+            int fin = 0;
+            bool dejaReserve = false;
+            /* Incrémentation du tableau returnValue a envoyer pour la confirmation:
              * O -> Nom et prénom du créateur de la réservation ; 1 -> Salle ; 2 -> Ligue ;
              * 3 -> Jour ; 4 -> Heure de début ; 5 -> Heure de fin ; 6 -> id user ; 7 -> id_salle ;
              */
@@ -170,16 +186,18 @@ namespace R2S
                             {
                                 // Retour du jour
                                 returnValue[0, 3] = affichageCalendar1[j - 1, 1].Substring(0, 10);
-                                // Retour de l'heure de début
+                                // Retour de l'heure de début de jour J
                                 returnValue[0, 4] = affichageCalendar1[j - 1, 1].Substring(11, 8);
+                                debut = j;
                                 break;
                             }
                             else if (i == 2)
                             {
                                 // Retour du jour
                                 returnValue[0, 3] = affichageCalendar2[j - 1, 1].Substring(0, 10);
-                                // Retour de l'heure de début
+                                // Retour de l'heure de début de j+1
                                 returnValue[0, 4] = affichageCalendar2[j - 1, 1].Substring(11, 8);
+                                debut = j;
                                 break;
                             }
                         }
@@ -190,24 +208,61 @@ namespace R2S
                         {
                             if (i == 1)
                             {
-                                // Retour de l'heure de fin
+                                // Retour de l'heure de fin de jour J
                                 returnValue[0, 5] = affichageCalendar1[h - 1, 2].Substring(11, 8);
+                                fin = h;
                                 break;
                             }
                             else if (i == 2)
                             {
-                                // Retour de l'heure de fin
+                                // Retour de l'heure de fin de J+1
                                 returnValue[0, 5] = affichageCalendar2[h - 1, 2].Substring(11, 8);
+                                fin = h;
                                 break;
                             }
                         }
                     }
                 }
             }
-            // Ouverture du form de confirmation
-            Reservation resa = new Reservation(returnValue);
-            resa.ShowDialog();
-            this.affichageCalendrier();
+            // Boucle pour vérifier si il existe un créneau déja réservé entre les créneaux selectionné :
+            for (int i = (debut+1); i < fin; i++)
+            {
+                if (returnValue[0, 3] == accueil_calendar.SelectionStart.ToShortDateString().Substring(6, 4) + "-" + accueil_calendar.SelectionStart.ToShortDateString().Substring(3, 2) + "-" + accueil_calendar.SelectionStart.ToShortDateString().Substring(0, 2))
+                {
+                    if (tbl_reservation.GetControlFromPosition(1, i).BackColor == Color.Crimson)
+                    {
+                        dejaReserve = true;
+                        break;
+                    }
+                }
+                else if (returnValue[0, 3] == accueil_calendar.SelectionStart.AddDays(1).ToShortDateString().Substring(6, 4) + "-" + accueil_calendar.SelectionStart.AddDays(1).ToShortDateString().Substring(3, 2) + "-" + accueil_calendar.SelectionStart.AddDays(1).ToShortDateString().Substring(0, 2))
+                {
+                    if (tbl_reservation.GetControlFromPosition(2, i).BackColor == Color.Crimson)
+                    {
+                        dejaReserve = true;
+                        break;
+                    }
+                }
+                
+            }
+            debut = 0;
+            fin = 0;
+            // Cas pour gérer si des cases on bien été selectionnés
+            if (returnValue[0, 3] != null && returnValue[0, 4] != null && returnValue[0, 5] != null && dejaReserve == false)
+            {
+                // Ouverture du form de confirmation
+                Reservation resa = new Reservation(returnValue);
+                resa.ShowDialog();
+                if (resa.DialogResult == DialogResult.OK)
+                {
+                    this.affichageCalendrier();
+                }
+            }
+            else
+            {
+                MessageBox.Show(((dejaReserve == true) ? "Une réservation a déja été créer dans les horaires selectionnés." :  "Veuillez selectionner un créneau horaire."), "Attention");
+            }
+            dejaReserve = false;
         }
     }
 }
