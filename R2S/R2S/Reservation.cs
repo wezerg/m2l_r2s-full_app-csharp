@@ -17,7 +17,7 @@ namespace R2S
         public Reservation(string [,] input)
         {
             /* Gérer les cas suivants :
-             * Si il y a plusieurs réservation, les séparés
+             * Si il y a plusieurs réservation, les séparés pour mieux les distinguer
              * A RAJOUTER AU BESOIN ------>
              * 
              */
@@ -32,9 +32,9 @@ namespace R2S
 
             /* Insertion dans le tableau de donnée a envoyer :
              * 0 -> intitulé de la requete pour le switch ; 1 -> raison ; 2 -> date et heure de début ;
-             * 3 -> date et heure de fin ; 4 -> id_user ; 5 -> id_salle;
+             * 3 -> date et heure de fin ; 4 -> id_user ; 5 -> id_salle ;
              */
-            envoiBDD[0, 0] = "resa";
+            envoiBDD[0, 0] = "ajoutResa";
             envoiBDD[0, 2] = input[0, 3] + " " + input[0, 4];
             envoiBDD[0, 3] = input[0, 3] + " " + input[0, 5];
             envoiBDD[0, 4] = input[0, 6];

@@ -185,7 +185,6 @@ namespace R2S
                 // Choix du texte de la requete en fonction du tableau recu
                 /* Case 0 du tableau -> case du switch
                  * Case 1 du tableau -> id de la donnée
-                 * Case 2 du tableau -> nom
                  */
                 switch (nonQuery[0,0])
                 {
@@ -235,10 +234,14 @@ namespace R2S
                         sqlCommand.CommandText = "DELETE FROM salle " +
                                                 "WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
-                    case "resa":
+                    case "ajoutResa":
                         sqlCommand.CommandText = "INSERT INTO reservation (raison, date_debut, date_fin, id_utilisateur, id_salle) " +
                                                 "VALUES (" + '"' + nonQuery[0, 1] + '"' + ", " + '"' + nonQuery[0, 2] + '"' + ", " + '"' + nonQuery[0, 3] + '"' +
                                                 ", " + '"' + nonQuery[0, 4] + '"' + ", " + '"' + nonQuery[0, 5] + '"' + ");";
+                        break;
+                    case "supprResa":
+                        sqlCommand.CommandText = "DELETE FROM reservation " +
+                                                "WHERE reservation.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
                     default:
                         MessageBox.Show("Erreur lors de l'écriture. Contactez votre administrateur", "Attention");
