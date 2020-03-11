@@ -79,5 +79,4 @@ D:\Cours\Projet\M2L_R2S\R2S\R2S\obj\Debug\R2S.csproj.CopyComplete
 D:\Cours\Projet\M2L_R2S\R2S\R2S\obj\Debug\R2S.exe
 D:\Cours\Projet\M2L_R2S\R2S\R2S\obj\Debug\R2S.pdb
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.Reservation.resources
-D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\bin\Debug\MySql.Data.dll
 D:\OneDrive\Fichiers\Cours\BTS02_Efficom_2019_2020\Projet_BTS\M2L_R2S\R2S\R2S\obj\Debug\R2S.modifReservation.resources
