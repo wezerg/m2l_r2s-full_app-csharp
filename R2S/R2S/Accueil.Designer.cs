@@ -69,6 +69,12 @@
             this.lbl_day2_4 = new System.Windows.Forms.Label();
             this.lbl_day1_7 = new System.Windows.Forms.Label();
             this.btn_reservation = new System.Windows.Forms.Button();
+            this.lbl_legend1 = new System.Windows.Forms.Label();
+            this.pnl_legend1 = new System.Windows.Forms.Panel();
+            this.pnl_legend2 = new System.Windows.Forms.Panel();
+            this.pnl_legend3 = new System.Windows.Forms.Panel();
+            this.lbl_legend2 = new System.Windows.Forms.Label();
+            this.lbl_legend3 = new System.Windows.Forms.Label();
             this.tbl_reservation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +82,7 @@
             // 
             this.accueil_calendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.accueil_calendar.Location = new System.Drawing.Point(590, 15);
-            this.accueil_calendar.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.accueil_calendar.Margin = new System.Windows.Forms.Padding(7);
             this.accueil_calendar.MaxSelectionCount = 1;
             this.accueil_calendar.Name = "accueil_calendar";
             this.accueil_calendar.TabIndex = 1;
@@ -129,7 +135,7 @@
             this.tbl_reservation.Controls.Add(this.lbl_day2_4, 2, 4);
             this.tbl_reservation.Controls.Add(this.lbl_day1_7, 1, 7);
             this.tbl_reservation.Location = new System.Drawing.Point(9, 15);
-            this.tbl_reservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbl_reservation.Margin = new System.Windows.Forms.Padding(2);
             this.tbl_reservation.Name = "tbl_reservation";
             this.tbl_reservation.RowCount = 13;
             this.tbl_reservation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692309F));
@@ -611,20 +617,78 @@
             this.btn_reservation.UseVisualStyleBackColor = true;
             this.btn_reservation.Click += new System.EventHandler(this.btn_reservation_Click);
             // 
+            // lbl_legend1
+            // 
+            this.lbl_legend1.AutoSize = true;
+            this.lbl_legend1.Location = new System.Drawing.Point(597, 274);
+            this.lbl_legend1.Name = "lbl_legend1";
+            this.lbl_legend1.Size = new System.Drawing.Size(85, 13);
+            this.lbl_legend1.TabIndex = 3;
+            this.lbl_legend1.Text = "Créneaux libres :";
+            // 
+            // pnl_legend1
+            // 
+            this.pnl_legend1.BackColor = System.Drawing.Color.LightGreen;
+            this.pnl_legend1.Location = new System.Drawing.Point(724, 268);
+            this.pnl_legend1.Name = "pnl_legend1";
+            this.pnl_legend1.Size = new System.Drawing.Size(59, 27);
+            this.pnl_legend1.TabIndex = 4;
+            // 
+            // pnl_legend2
+            // 
+            this.pnl_legend2.BackColor = System.Drawing.Color.LightBlue;
+            this.pnl_legend2.Location = new System.Drawing.Point(724, 308);
+            this.pnl_legend2.Name = "pnl_legend2";
+            this.pnl_legend2.Size = new System.Drawing.Size(59, 27);
+            this.pnl_legend2.TabIndex = 5;
+            // 
+            // pnl_legend3
+            // 
+            this.pnl_legend3.BackColor = System.Drawing.Color.Crimson;
+            this.pnl_legend3.Location = new System.Drawing.Point(724, 348);
+            this.pnl_legend3.Name = "pnl_legend3";
+            this.pnl_legend3.Size = new System.Drawing.Size(59, 27);
+            this.pnl_legend3.TabIndex = 6;
+            // 
+            // lbl_legend2
+            // 
+            this.lbl_legend2.AutoSize = true;
+            this.lbl_legend2.Location = new System.Drawing.Point(597, 314);
+            this.lbl_legend2.Name = "lbl_legend2";
+            this.lbl_legend2.Size = new System.Drawing.Size(120, 13);
+            this.lbl_legend2.TabIndex = 7;
+            this.lbl_legend2.Text = "Créneaux selectionnés :";
+            // 
+            // lbl_legend3
+            // 
+            this.lbl_legend3.AutoSize = true;
+            this.lbl_legend3.Location = new System.Drawing.Point(597, 354);
+            this.lbl_legend3.Name = "lbl_legend3";
+            this.lbl_legend3.Size = new System.Drawing.Size(101, 13);
+            this.lbl_legend3.TabIndex = 8;
+            this.lbl_legend3.Text = "Créneaux réservés :";
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 454);
+            this.ClientSize = new System.Drawing.Size(850, 447);
+            this.Controls.Add(this.lbl_legend3);
+            this.Controls.Add(this.lbl_legend2);
+            this.Controls.Add(this.pnl_legend3);
+            this.Controls.Add(this.pnl_legend2);
+            this.Controls.Add(this.pnl_legend1);
+            this.Controls.Add(this.lbl_legend1);
             this.Controls.Add(this.btn_reservation);
             this.Controls.Add(this.accueil_calendar);
             this.Controls.Add(this.tbl_reservation);
-            this.MaximumSize = new System.Drawing.Size(866, 493);
-            this.MinimumSize = new System.Drawing.Size(866, 493);
+            this.MaximumSize = new System.Drawing.Size(866, 486);
+            this.MinimumSize = new System.Drawing.Size(866, 486);
             this.Name = "Accueil";
             this.Text = "Accueil";
             this.tbl_reservation.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -670,5 +734,11 @@
         private System.Windows.Forms.Label lbl_day1_4;
         private System.Windows.Forms.Label lbl_day2_4;
         private System.Windows.Forms.Label lbl_day1_7;
+        private System.Windows.Forms.Label lbl_legend1;
+        private System.Windows.Forms.Panel pnl_legend1;
+        private System.Windows.Forms.Panel pnl_legend2;
+        private System.Windows.Forms.Panel pnl_legend3;
+        private System.Windows.Forms.Label lbl_legend2;
+        private System.Windows.Forms.Label lbl_legend3;
     }
 }

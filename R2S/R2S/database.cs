@@ -33,7 +33,7 @@ namespace R2S
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur de connexion", ex.Message);
+                MessageBox.Show(ex.Message, "Attention");
             }
         }
 
@@ -206,7 +206,9 @@ namespace R2S
                                                 ((nonQuery[0, 7] == null || nonQuery[0, 7] == "") ? "" : ", "+'"' + nonQuery[0, 7] + '"') +
                                                 ", " + '"' + 2 + '"' + ");";
                         break;
-                    case "supprSalarie": // ATTENTION, il faudra gérer la suppression des réservations de l'utilisateur
+                    case "supprSalarie": 
+                        sqlCommand.CommandText = "DELETE FROM reservation WHERE reservation.id_utilisateur = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        sqlCommand.ExecuteNonQuery(); // Suppression des réservations de l'utilisateur
                         sqlCommand.CommandText = "DELETE FROM utilisateur " +
                                                 "WHERE utilisateur.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
@@ -219,6 +221,9 @@ namespace R2S
                                                 " WHERE ligue.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
                     case "supprLigue":
+                        sqlCommand.CommandText = "UPDATE utilisateur SET id_ligue = " + "NULL " + 
+                                                "WHERE utilisateur.id_ligue = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        sqlCommand.ExecuteNonQuery();// Update des utilisateur a la suppression d'une ligue
                         sqlCommand.CommandText = "DELETE FROM ligue " +
                                                 "WHERE ligue.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
@@ -230,7 +235,11 @@ namespace R2S
                                                 "SET localisation = " + '"' + nonQuery[0, 2] + '"' +
                                                 " WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;
-                    case "supprSalle": // ATTENTION, il faudra gérer la suppression des réservations lié a la salle
+                    case "supprSalle": 
+                        sqlCommand.CommandText = "DELETE FROM reservation WHERE reservation.id_salle = " + '"' + nonQuery[0, 1] + '"' + ";"; 
+                        sqlCommand.ExecuteNonQuery();// Suppresion des réservation lié a la salle supprimée
+                        sqlCommand.CommandText = "UPDATE utilisateur SET id_salle = " + "NULL " + "WHERE id_salle = " + '"' + nonQuery[0, 1] + '"' + ";";
+                        sqlCommand.ExecuteNonQuery();// Update des utilisateurs lié a la salle supprimée
                         sqlCommand.CommandText = "DELETE FROM salle " +
                                                 "WHERE salle.id = " + '"' + nonQuery[0, 1] + '"' + ";";
                         break;

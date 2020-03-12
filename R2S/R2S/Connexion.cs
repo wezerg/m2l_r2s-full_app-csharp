@@ -29,28 +29,35 @@ namespace R2S
             // Conditions pour vérifier l'entrée de donnée dans les champs
             if (txt_login.Text != "" && txt_password.Text != "")
             {
-                db.dbConnect();
-                // Chaine de requete pour la vérification des utilisateurs
-                strQuery = "SELECT utilisateur.login, utilisateur.password, utilisateur.id, utilisateur.id_groupe_utilisateur, utilisateur.id_ligue, utilisateur.id_salle, utilisateur. nom, utilisateur.prenom FROM utilisateur";
-                if (db.userCertif(strQuery, txt_login, txt_password) == 2)
+                try
                 {
-                    Accueil acceuil = new Accueil(db.dbQuery(strQuery + " WHERE utilisateur.login = " + '"' + txt_login.Text + '"' + " && utilisateur.password = " + '"' + db.GetHashPassword(txt_password.Text) + '"' + ";"));
-                    this.Hide();
-                    acceuil.Show();
-                    
-                }
-                if (db.userCertif(strQuery, txt_login, txt_password) == 1)
-                {
-                    Administrateur administrateur = new Administrateur();
-                    this.Hide();
-                    administrateur.Show();
+                    db.dbConnect();
+                    // Chaine de requete pour la vérification des utilisateurs
+                    strQuery = "SELECT utilisateur.login, utilisateur.password, utilisateur.id, utilisateur.id_groupe_utilisateur, utilisateur.id_ligue, utilisateur.id_salle, utilisateur. nom, utilisateur.prenom FROM utilisateur";
+                    if (db.userCertif(strQuery, txt_login, txt_password) == 2)
+                    {
+                        Accueil acceuil = new Accueil(db.dbQuery(strQuery + " WHERE utilisateur.login = " + '"' + txt_login.Text + '"' + " && utilisateur.password = " + '"' + db.GetHashPassword(txt_password.Text) + '"' + ";"));
+                        this.Hide();
+                        acceuil.Show();
 
+                    }
+                    if (db.userCertif(strQuery, txt_login, txt_password) == 1)
+                    {
+                        Administrateur administrateur = new Administrateur();
+                        this.Hide();
+                        administrateur.Show();
+
+                    }
+                    if (db.userCertif(strQuery, txt_login, txt_password) == 0)
+                    {
+                        MessageBox.Show("Informations de connexion incorrecte.", "Attention");
+                    }
+                    db.dbDisconnect();
                 }
-                if(db.userCertif(strQuery, txt_login, txt_password) == 0)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Informations de connexion incorrecte.", "Attention");
+                    MessageBox.Show("Un probleme de connexion est survenu, contactez votre administrateur réseau.", "Attention");
                 }
-                db.dbDisconnect();
             }
             else
             {
