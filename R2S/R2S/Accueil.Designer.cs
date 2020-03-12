@@ -75,6 +75,8 @@
             this.pnl_legend3 = new System.Windows.Forms.Panel();
             this.lbl_legend2 = new System.Windows.Forms.Label();
             this.lbl_legend3 = new System.Windows.Forms.Label();
+            this.btn_deconnexion = new System.Windows.Forms.Button();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.tbl_reservation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -668,11 +670,33 @@
             this.lbl_legend3.TabIndex = 8;
             this.lbl_legend3.Text = "Créneaux réservés :";
             // 
+            // btn_deconnexion
+            // 
+            this.btn_deconnexion.Location = new System.Drawing.Point(726, 402);
+            this.btn_deconnexion.Name = "btn_deconnexion";
+            this.btn_deconnexion.Size = new System.Drawing.Size(112, 34);
+            this.btn_deconnexion.TabIndex = 9;
+            this.btn_deconnexion.Text = "Déconnexion";
+            this.btn_deconnexion.UseVisualStyleBackColor = true;
+            this.btn_deconnexion.Click += new System.EventHandler(this.btn_deconnexion_Click);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(590, 402);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(112, 34);
+            this.btn_refresh.TabIndex = 10;
+            this.btn_refresh.Text = "Rafraichir";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 447);
+            this.Controls.Add(this.btn_refresh);
+            this.Controls.Add(this.btn_deconnexion);
             this.Controls.Add(this.lbl_legend3);
             this.Controls.Add(this.lbl_legend2);
             this.Controls.Add(this.pnl_legend3);
@@ -740,5 +764,7 @@
         private System.Windows.Forms.Panel pnl_legend3;
         private System.Windows.Forms.Label lbl_legend2;
         private System.Windows.Forms.Label lbl_legend3;
+        private System.Windows.Forms.Button btn_deconnexion;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

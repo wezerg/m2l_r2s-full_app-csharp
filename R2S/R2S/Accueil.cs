@@ -339,5 +339,16 @@ namespace R2S
             }
             
         }
+
+        private void btn_deconnexion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            this.affichageCalendrier();
+        }
     }
 }

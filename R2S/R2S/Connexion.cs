@@ -39,14 +39,14 @@ namespace R2S
                         Accueil acceuil = new Accueil(db.dbQuery(strQuery + " WHERE utilisateur.login = " + '"' + txt_login.Text + '"' + " && utilisateur.password = " + '"' + db.GetHashPassword(txt_password.Text) + '"' + ";"));
                         this.Hide();
                         acceuil.Show();
-
+                        acceuil.FormClosed += (s, args) => this.Show();
                     }
                     if (db.userCertif(strQuery, txt_login, txt_password) == 1)
                     {
                         Administrateur administrateur = new Administrateur();
                         this.Hide();
                         administrateur.Show();
-
+                        administrateur.FormClosed += (s, args) => this.Show();
                     }
                     if (db.userCertif(strQuery, txt_login, txt_password) == 0)
                     {

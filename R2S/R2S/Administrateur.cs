@@ -137,5 +137,16 @@ namespace R2S
             if (data_admin_salle.SelectedCells.Count == 0) btn_admin_salle_modif.Enabled = false;
             else btn_admin_salle_modif.Enabled = true;
         }
+
+        private void btn_admin_deconnexion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private void btn_admin_refresh_Click(object sender, EventArgs e)
+        {
+            this.refreshList();
+        }
     }
 }
