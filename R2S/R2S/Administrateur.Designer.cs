@@ -318,7 +318,7 @@
             this.btn_admin_refresh.Name = "btn_admin_refresh";
             this.btn_admin_refresh.Size = new System.Drawing.Size(91, 37);
             this.btn_admin_refresh.TabIndex = 17;
-            this.btn_admin_refresh.Text = "Rafraichir";
+            this.btn_admin_refresh.Text = "Actualiser";
             this.btn_admin_refresh.UseVisualStyleBackColor = true;
             this.btn_admin_refresh.Click += new System.EventHandler(this.btn_admin_refresh_Click);
             // 

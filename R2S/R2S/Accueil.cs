@@ -25,12 +25,33 @@ namespace R2S
              */
             infoConnexion = infoSalarie;
             this.affichageCalendrier();
+            lbl_identite.Text = lbl_identite.Text + infoConnexion[0, 6] + " " + infoConnexion[0, 7];
+            db.dbConnect();
+            if (infoConnexion[0,4] != "")
+            {
+                lbl_ligue.Text = lbl_ligue.Text + db.dbQuery("SELECT l.intitule FROM ligue l WHERE l.id = " + '"' + infoConnexion[0, 4] + '"' + ";")[0, 0];
+            }
+            else
+            {
+                lbl_ligue.Text = lbl_ligue.Text + "Non attribuée";
+                lbl_ligue.ForeColor = Color.Crimson;
+            }
+            if (infoConnexion[0, 5] != "")
+            {
+                lbl_salle.Text = lbl_salle.Text + db.dbQuery("SELECT s.localisation FROM salle s WHERE s.id = " + '"' + infoConnexion[0, 5] + '"' + ";")[0, 0];
+            }
+            else
+            {
+                lbl_salle.Text = lbl_salle.Text + "Non attribuée";
+                lbl_salle.ForeColor = Color.Crimson;
+            }
+            db.dbDisconnect();
         }
 
         public void clickCalendar(object sender, EventArgs e)
         {
             string[,] returnValue = new string[1, 8];
-            string[,] infoResaSelect;
+            string[,] infoResaSelect = new string[1, 5];
             bool maResa = false;
             /* Incrémentation du tableau de donnée pour le form de suppression
              * 0 -> raison ; 1 -> Identité du créateur ; 2 -> Salle concernée ; 3 -> Ligue concernée ; 
@@ -51,14 +72,14 @@ namespace R2S
                 // Boucle pour récupérer l'id, l'heure début et fin, et la date de la reservation selectionnée
                 for (int i = int.Parse(tbl_reservation.GetRow(l).ToString()); i > 0; i--)
                 {
-                    if (tbl_reservation.GetControlFromPosition(int.Parse(tbl_reservation.GetColumn(l).ToString()), i).Text == l.Text && tbl_reservation.GetControlFromPosition(int.Parse(tbl_reservation.GetColumn(l).ToString()), i).ForeColor == Color.Black && int.Parse(tbl_reservation.GetColumn(l).ToString()) == 1)
+                    if (tbl_reservation.GetControlFromPosition(int.Parse(tbl_reservation.GetColumn(l).ToString()), i).Text == l.Text && affichageCalendar1[i - 1, 0] != null && int.Parse(tbl_reservation.GetColumn(l).ToString()) == 1)
                     {
                         returnValue[0, 4] = affichageCalendar1[i - 1, 1].Substring(8, 2) + "/" + affichageCalendar1[i - 1, 1].Substring(5, 2) + "/" + affichageCalendar1[i - 1, 1].Substring(0, 4); // Date du jour
                         returnValue[0, 5] = affichageCalendar1[i - 1, 2].Substring(11, 8); // Heure de fin
                         returnValue[0, 6] = affichageCalendar1[i - 1, 1].Substring(11, 8); // Heure de début
                         returnValue[0, 7] = affichageCalendar1[i - 1, 0]; // id de la réservation
                     }
-                    else if (tbl_reservation.GetControlFromPosition(int.Parse(tbl_reservation.GetColumn(l).ToString()), i).Text == l.Text && tbl_reservation.GetControlFromPosition(int.Parse(tbl_reservation.GetColumn(l).ToString()), i).ForeColor == Color.Black && int.Parse(tbl_reservation.GetColumn(l).ToString()) == 2)
+                    else if (tbl_reservation.GetControlFromPosition(int.Parse(tbl_reservation.GetColumn(l).ToString()), i).Text == l.Text && affichageCalendar2[i - 1, 0] != null && int.Parse(tbl_reservation.GetColumn(l).ToString()) == 2)
                     {
                         returnValue[0, 4] = affichageCalendar2[i - 1, 1].Substring(8, 2) + "/" + affichageCalendar2[i - 1, 1].Substring(5, 2) + "/" + affichageCalendar2[i - 1, 1].Substring(0, 4); // Date du jour
                         returnValue[0, 5] = affichageCalendar2[i - 1, 2].Substring(11, 8); // Heure de fin
@@ -73,19 +94,26 @@ namespace R2S
                                             "join ligue l on u.id_ligue = l.id " +
                                             "WHERE r.id_utilisateur = u.id && r.id =" + '"' + returnValue[0, 7] + '"' + ";");
                 db.dbDisconnect();
-                returnValue[0, 1] = infoResaSelect[0, 0] + " " + infoResaSelect[0, 1];// Identité du créateur
-                returnValue[0, 2] = infoResaSelect[0, 2]; // Salle concernée
-                returnValue[0, 3] = infoResaSelect[0, 3]; // Ligue concernée
-                if (infoConnexion[0, 2] == infoResaSelect[0, 4]) 
+                if (infoResaSelect.Length != 0)
                 {
-                    maResa = true;
-                }
+                    returnValue[0, 1] = infoResaSelect[0, 0] + " " + infoResaSelect[0, 1];// Identité du créateur
+                    returnValue[0, 2] = infoResaSelect[0, 2]; // Salle concernée
+                    returnValue[0, 3] = infoResaSelect[0, 3]; // Ligue concernée
+                    if (infoConnexion[0, 2] == infoResaSelect[0, 4])
+                    {
+                        maResa = true;
+                    }
 
-                modifReservation modifResa = new modifReservation(returnValue, maResa);
-                modifResa.ShowDialog();
-                if (modifResa.DialogResult == DialogResult.OK)
+                    modifReservation modifResa = new modifReservation(returnValue, maResa);
+                    modifResa.ShowDialog();
+                    if (modifResa.DialogResult == DialogResult.OK)
+                    {
+                        affichageCalendrier();
+                    }
+                }
+                else
                 {
-                    affichageCalendrier();
+                    MessageBox.Show("Utilisateur non identifié, contactez votre administrateur réseau.","Attention");
                 }
             }
         }
@@ -111,17 +139,14 @@ namespace R2S
                     if (accueil_calendar.SelectionStart.ToLongDateString().Substring(0, 3) == "dim" && j == 1)
                     {
                         tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGray;
-                        tbl_reservation.GetControlFromPosition(j, i).ForeColor = Color.Black;
                     }
                     else if (accueil_calendar.SelectionStart.AddDays(1).ToLongDateString().Substring(0, 3) == "dim" && j == 2)
                     {
                         tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGray;
-                        tbl_reservation.GetControlFromPosition(j, i).ForeColor = Color.Black;
                     }
                     else
                     {
                         tbl_reservation.GetControlFromPosition(j, i).BackColor = Color.LightGreen;
-                        tbl_reservation.GetControlFromPosition(j, i).ForeColor = Color.Black;
                     }
                     affichageCalendar1[refreshTab, 0] = null;
                     affichageCalendar1[refreshTab, 1] = null;
@@ -189,14 +214,6 @@ namespace R2S
                     {
                         tbl_reservation.GetControlFromPosition(1, i + j).BackColor = Color.Crimson;
                         tbl_reservation.GetControlFromPosition(1, i + j).Text = affichageCalendar1[indexTab, 3];
-                        if (j > 0)
-                        {
-                            tbl_reservation.GetControlFromPosition(1, i + j).ForeColor = Color.LightGray;
-                        }
-                        else
-                        {
-                            tbl_reservation.GetControlFromPosition(1, i + j).ForeColor = Color.Black;
-                        }
                     }
                 }
                 if (affichageCalendar2[indexTab, 0] != null)
@@ -206,14 +223,6 @@ namespace R2S
                     {
                         tbl_reservation.GetControlFromPosition(2, i + j).BackColor = Color.Crimson;
                         tbl_reservation.GetControlFromPosition(2, i + j).Text = affichageCalendar2[indexTab, 3];
-                        if (j > 0)
-                        {
-                            tbl_reservation.GetControlFromPosition(2, i + j).ForeColor = Color.LightGray;
-                        }
-                        else
-                        {
-                            tbl_reservation.GetControlFromPosition(2, i + j).ForeColor = Color.Black;
-                        }
                     }
                 }
                 indexTab++;

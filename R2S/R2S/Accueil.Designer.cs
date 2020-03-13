@@ -77,13 +77,16 @@
             this.lbl_legend3 = new System.Windows.Forms.Label();
             this.btn_deconnexion = new System.Windows.Forms.Button();
             this.btn_refresh = new System.Windows.Forms.Button();
+            this.lbl_identite = new System.Windows.Forms.Label();
+            this.lbl_ligue = new System.Windows.Forms.Label();
+            this.lbl_salle = new System.Windows.Forms.Label();
             this.tbl_reservation.SuspendLayout();
             this.SuspendLayout();
             // 
             // accueil_calendar
             // 
             this.accueil_calendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.accueil_calendar.Location = new System.Drawing.Point(590, 15);
+            this.accueil_calendar.Location = new System.Drawing.Point(590, 46);
             this.accueil_calendar.Margin = new System.Windows.Forms.Padding(7);
             this.accueil_calendar.MaxSelectionCount = 1;
             this.accueil_calendar.Name = "accueil_calendar";
@@ -136,7 +139,7 @@
             this.tbl_reservation.Controls.Add(this.lbl_day1_4, 1, 4);
             this.tbl_reservation.Controls.Add(this.lbl_day2_4, 2, 4);
             this.tbl_reservation.Controls.Add(this.lbl_day1_7, 1, 7);
-            this.tbl_reservation.Location = new System.Drawing.Point(9, 15);
+            this.tbl_reservation.Location = new System.Drawing.Point(9, 46);
             this.tbl_reservation.Margin = new System.Windows.Forms.Padding(2);
             this.tbl_reservation.Name = "tbl_reservation";
             this.tbl_reservation.RowCount = 13;
@@ -611,7 +614,7 @@
             // 
             // btn_reservation
             // 
-            this.btn_reservation.Location = new System.Drawing.Point(590, 201);
+            this.btn_reservation.Location = new System.Drawing.Point(590, 232);
             this.btn_reservation.Name = "btn_reservation";
             this.btn_reservation.Size = new System.Drawing.Size(227, 46);
             this.btn_reservation.TabIndex = 2;
@@ -622,7 +625,7 @@
             // lbl_legend1
             // 
             this.lbl_legend1.AutoSize = true;
-            this.lbl_legend1.Location = new System.Drawing.Point(597, 274);
+            this.lbl_legend1.Location = new System.Drawing.Point(12, 481);
             this.lbl_legend1.Name = "lbl_legend1";
             this.lbl_legend1.Size = new System.Drawing.Size(85, 13);
             this.lbl_legend1.TabIndex = 3;
@@ -631,7 +634,7 @@
             // pnl_legend1
             // 
             this.pnl_legend1.BackColor = System.Drawing.Color.LightGreen;
-            this.pnl_legend1.Location = new System.Drawing.Point(724, 268);
+            this.pnl_legend1.Location = new System.Drawing.Point(111, 475);
             this.pnl_legend1.Name = "pnl_legend1";
             this.pnl_legend1.Size = new System.Drawing.Size(59, 27);
             this.pnl_legend1.TabIndex = 4;
@@ -639,7 +642,7 @@
             // pnl_legend2
             // 
             this.pnl_legend2.BackColor = System.Drawing.Color.LightBlue;
-            this.pnl_legend2.Location = new System.Drawing.Point(724, 308);
+            this.pnl_legend2.Location = new System.Drawing.Point(315, 475);
             this.pnl_legend2.Name = "pnl_legend2";
             this.pnl_legend2.Size = new System.Drawing.Size(59, 27);
             this.pnl_legend2.TabIndex = 5;
@@ -647,7 +650,7 @@
             // pnl_legend3
             // 
             this.pnl_legend3.BackColor = System.Drawing.Color.Crimson;
-            this.pnl_legend3.Location = new System.Drawing.Point(724, 348);
+            this.pnl_legend3.Location = new System.Drawing.Point(506, 475);
             this.pnl_legend3.Name = "pnl_legend3";
             this.pnl_legend3.Size = new System.Drawing.Size(59, 27);
             this.pnl_legend3.TabIndex = 6;
@@ -655,7 +658,7 @@
             // lbl_legend2
             // 
             this.lbl_legend2.AutoSize = true;
-            this.lbl_legend2.Location = new System.Drawing.Point(597, 314);
+            this.lbl_legend2.Location = new System.Drawing.Point(188, 481);
             this.lbl_legend2.Name = "lbl_legend2";
             this.lbl_legend2.Size = new System.Drawing.Size(120, 13);
             this.lbl_legend2.TabIndex = 7;
@@ -664,7 +667,7 @@
             // lbl_legend3
             // 
             this.lbl_legend3.AutoSize = true;
-            this.lbl_legend3.Location = new System.Drawing.Point(597, 354);
+            this.lbl_legend3.Location = new System.Drawing.Point(392, 481);
             this.lbl_legend3.Name = "lbl_legend3";
             this.lbl_legend3.Size = new System.Drawing.Size(101, 13);
             this.lbl_legend3.TabIndex = 8;
@@ -672,7 +675,7 @@
             // 
             // btn_deconnexion
             // 
-            this.btn_deconnexion.Location = new System.Drawing.Point(726, 402);
+            this.btn_deconnexion.Location = new System.Drawing.Point(705, 7);
             this.btn_deconnexion.Name = "btn_deconnexion";
             this.btn_deconnexion.Size = new System.Drawing.Size(112, 34);
             this.btn_deconnexion.TabIndex = 9;
@@ -682,19 +685,52 @@
             // 
             // btn_refresh
             // 
-            this.btn_refresh.Location = new System.Drawing.Point(590, 402);
+            this.btn_refresh.Location = new System.Drawing.Point(9, 7);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(112, 34);
             this.btn_refresh.TabIndex = 10;
-            this.btn_refresh.Text = "Rafraichir";
+            this.btn_refresh.Text = "Actualiser";
             this.btn_refresh.UseVisualStyleBackColor = true;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // lbl_identite
+            // 
+            this.lbl_identite.AutoSize = true;
+            this.lbl_identite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_identite.Location = new System.Drawing.Point(587, 305);
+            this.lbl_identite.Name = "lbl_identite";
+            this.lbl_identite.Size = new System.Drawing.Size(66, 17);
+            this.lbl_identite.TabIndex = 11;
+            this.lbl_identite.Text = "Identite : ";
+            // 
+            // lbl_ligue
+            // 
+            this.lbl_ligue.AutoSize = true;
+            this.lbl_ligue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ligue.Location = new System.Drawing.Point(587, 341);
+            this.lbl_ligue.Name = "lbl_ligue";
+            this.lbl_ligue.Size = new System.Drawing.Size(55, 17);
+            this.lbl_ligue.TabIndex = 12;
+            this.lbl_ligue.Text = "Ligue : ";
+            // 
+            // lbl_salle
+            // 
+            this.lbl_salle.AutoSize = true;
+            this.lbl_salle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_salle.Location = new System.Drawing.Point(586, 378);
+            this.lbl_salle.Name = "lbl_salle";
+            this.lbl_salle.Size = new System.Drawing.Size(51, 17);
+            this.lbl_salle.TabIndex = 13;
+            this.lbl_salle.Text = "Salle : ";
             // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 447);
+            this.ClientSize = new System.Drawing.Size(833, 512);
+            this.Controls.Add(this.lbl_salle);
+            this.Controls.Add(this.lbl_ligue);
+            this.Controls.Add(this.lbl_identite);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.btn_deconnexion);
             this.Controls.Add(this.lbl_legend3);
@@ -706,8 +742,8 @@
             this.Controls.Add(this.btn_reservation);
             this.Controls.Add(this.accueil_calendar);
             this.Controls.Add(this.tbl_reservation);
-            this.MaximumSize = new System.Drawing.Size(866, 486);
-            this.MinimumSize = new System.Drawing.Size(866, 486);
+            this.MaximumSize = new System.Drawing.Size(849, 551);
+            this.MinimumSize = new System.Drawing.Size(849, 551);
             this.Name = "Accueil";
             this.Text = "Accueil";
             this.tbl_reservation.ResumeLayout(false);
@@ -766,5 +802,8 @@
         private System.Windows.Forms.Label lbl_legend3;
         private System.Windows.Forms.Button btn_deconnexion;
         private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.Label lbl_identite;
+        private System.Windows.Forms.Label lbl_ligue;
+        private System.Windows.Forms.Label lbl_salle;
     }
 }
