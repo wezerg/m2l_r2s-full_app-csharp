@@ -326,7 +326,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 525);
+            this.ClientSize = new System.Drawing.Size(926, 525);
             this.Controls.Add(this.btn_admin_refresh);
             this.Controls.Add(this.btn_admin_deconnexion);
             this.Controls.Add(this.btn_admin_ligue_modif);
@@ -344,8 +344,8 @@
             this.Controls.Add(this.btn_admin_salarie_remove);
             this.Controls.Add(this.btn_admin_salarie_add);
             this.Controls.Add(this.lbl_admin_salarie);
-            this.MaximumSize = new System.Drawing.Size(978, 564);
-            this.MinimumSize = new System.Drawing.Size(978, 564);
+            this.MaximumSize = new System.Drawing.Size(942, 564);
+            this.MinimumSize = new System.Drawing.Size(942, 564);
             this.Name = "Administrateur";
             this.Text = "Administrateur";
             this.Shown += new System.EventHandler(this.Administrateur_Shown);

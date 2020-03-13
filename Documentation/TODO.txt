@@ -1,7 +1,0 @@
-A faire :
-	- Gérer les réservations si on supprime un utilisateur ou une salle
-	- Ajouter la suppression des réservations
-	- Ajouter la modification des réservations
-	- Ajouter une légende
-	- Ajouter un texte pour différencier les réservations
-	- 
