@@ -23,11 +23,13 @@ namespace R2S
         public modifSalarie(string [,] tabDonnees, string type)
         {
             InitializeComponent();
+            returnValue = new string[1, 8];
             // Incrémentation des valeurs du formulaire avec les données du salariés choisi
             txt_add_nom.Text = tabDonnees[0, 1];
             txt_add_prenom.Text = tabDonnees[0, 2];
             txt_add_login.Text = tabDonnees[0, 3];
             txt_add_password.Text = tabDonnees[0, 4];
+            returnValue[0, 5] = tabDonnees[0, 4];
 
             db.dbConnect();
             // Création des listes des ligues et des salles en listBox
@@ -81,7 +83,7 @@ namespace R2S
             }
             
             // Stockage de l'id du salarié dans le tableau de renvoi
-            returnValue = new string[1, 8];
+            
             returnValue[0, 1] = tabDonnees[0, 0];
         }
 
@@ -103,7 +105,11 @@ namespace R2S
                 this.returnValue[0, 2] = txt_add_nom.Text;
                 this.returnValue[0, 3] = txt_add_prenom.Text;
                 this.returnValue[0, 4] = txt_add_login.Text;
-                this.returnValue[0, 5] = db.GetHashPassword(txt_add_password.Text);
+                // Vérification du changement de mot de passe
+                if (txt_add_password.Text != returnValue[0,5])
+                {
+                    this.returnValue[0, 5] = db.GetHashPassword(txt_add_password.Text);
+                }
                 // Aller chercher l'id de la ligue et de la salle pour les rajouter a l'employé :
                 if (cho_add_salle.SelectedItem != null)
                 {

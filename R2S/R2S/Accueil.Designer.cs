@@ -697,7 +697,7 @@
             // 
             this.lbl_identite.AutoSize = true;
             this.lbl_identite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_identite.Location = new System.Drawing.Point(587, 305);
+            this.lbl_identite.Location = new System.Drawing.Point(605, 305);
             this.lbl_identite.Name = "lbl_identite";
             this.lbl_identite.Size = new System.Drawing.Size(66, 17);
             this.lbl_identite.TabIndex = 11;
@@ -707,7 +707,7 @@
             // 
             this.lbl_ligue.AutoSize = true;
             this.lbl_ligue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ligue.Location = new System.Drawing.Point(587, 341);
+            this.lbl_ligue.Location = new System.Drawing.Point(605, 332);
             this.lbl_ligue.Name = "lbl_ligue";
             this.lbl_ligue.Size = new System.Drawing.Size(55, 17);
             this.lbl_ligue.TabIndex = 12;
@@ -717,7 +717,7 @@
             // 
             this.lbl_salle.AutoSize = true;
             this.lbl_salle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_salle.Location = new System.Drawing.Point(586, 378);
+            this.lbl_salle.Location = new System.Drawing.Point(604, 360);
             this.lbl_salle.Name = "lbl_salle";
             this.lbl_salle.Size = new System.Drawing.Size(51, 17);
             this.lbl_salle.TabIndex = 13;
