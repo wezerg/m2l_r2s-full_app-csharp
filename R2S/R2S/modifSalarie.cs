@@ -130,20 +130,11 @@ namespace R2S
                             this.returnValue[0, 6] = listLigue[i, 0];
                         }
                     }
-                } // REVOIR LES DEUX IF CI-DESSOUS ------------------------------------------>
-                // Si on modifier le salarié
-                if (this.Text == "Modifier salarié")
-                {
-                    // Modification de l'utilisateur
-                    returnValue[0, 0] = "modifUser";
-                    db.updateDB(returnValue);
-                    this.Close();
-                    this.Dispose();
                 }
-                // Si on ajoute le salarié
-                if (this.Text == "Ajouter salarié")
+                if (!loginNonUnique)// Si le login est unique alors :
                 {
-                    if (!loginNonUnique)// Si le login est unique alors :
+                    // Si on ajoute le salarié
+                    if (this.Text == "Ajouter salarié")
                     {
                         // Ajout d'utilisateur
                         returnValue[0, 0] = "ajoutUser";
@@ -151,12 +142,21 @@ namespace R2S
                         this.Close();
                         this.Dispose();
                     }
-                    else
+                    // Si on modifier le salarié
+                    if (this.Text == "Modifier salarié")
                     {
-                        MessageBox.Show("Ce login existe déja.", "Attention");
-                        loginNonUnique = false;
+                        // Modification de l'utilisateur
+                        returnValue[0, 0] = "modifUser";
+                        db.updateDB(returnValue);
+                        this.Close();
+                        this.Dispose();
                     }
-                }            
+                }
+                else
+                {
+                    MessageBox.Show("Ce login existe déja.", "Attention");
+                    loginNonUnique = false;
+                } 
             }
             else
             {
